@@ -8,10 +8,8 @@
 
 import Splash from "./Splash";
 import Coupons from "./Coupons";
-import Favourites from "./Favourites";
-import Home from "./Home";
-import Menu from "./Menu";
-import Tickets from "./Tickets";
+import Claims from "./Claims";
+import CreateCoupons from "./CreateCoupons";
 import Users from "./Users";
 
-export { Splash, Coupons, Favourites, Home, Menu, Tickets, Users };
+export { Splash, Coupons, CreateCoupons, Claims, Users };

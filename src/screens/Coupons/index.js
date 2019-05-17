@@ -12,7 +12,13 @@ import { Text, View } from "react-native";
 export class index extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View
+                style={{
+                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "center"
+                }}
+            >
                 <Text> Coupons </Text>
             </View>
         );
