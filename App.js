@@ -31,7 +31,17 @@ export default class App extends React.Component {
     }
     render() {
         if (this.state.fontsLoaded) {
-            return <Text>Loading....</Text>;
+            return (
+                <View
+                    style={{
+                        flex: 1,
+                        alignSelf: "center",
+                        justifyContent: "center"
+                    }}
+                >
+                    <Text>Loading....</Text>
+                </View>
+            );
         }
 
         return <Main />;

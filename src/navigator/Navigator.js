@@ -20,6 +20,18 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { Splash, Users, Coupons, Claims, CreateCoupons } from "../screens";
 import CustomIcon from "../Icons/CustomIcon";
 
+import { Logo, HeaderTitle } from "../common";
+
+const defaultNavigationOptions = {
+    headerStyle: {
+        backgroundColor: "#fff"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+        fontWeight: "bold"
+    }
+};
+
 const Detail = props => (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Detail</Text>
@@ -43,58 +55,8 @@ const CouponsStack = createStackNavigator(
                                 marginTop: -20
                             }}
                         >
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderColor: "#EDEDED",
-                                    borderWidth: 1,
-                                    height: 50,
-                                    width: 50,
-                                    marginLeft: 10,
-                                    padding: 5,
-                                    borderRadius: 50,
-                                    shadowColor: "#EDEDED",
-                                    shadowOffset: {
-                                        width: 0,
-                                        height: 4
-                                    },
-                                    shadowOpacity: 0.18,
-                                    shadowRadius: 1,
-
-                                    elevation: 1
-                                }}
-                            >
-                                <Image
-                                    style={{
-                                        alignSelf: "center",
-                                        height: 37,
-                                        width: 37,
-                                        borderWidth: 1,
-                                        borderRadius: 30
-                                    }}
-                                    source={require("../../assets/ccd1.png")}
-                                />
-                            </View>
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "flex-start",
-                                    justifyContent: "center",
-                                    marginLeft: 10
-                                }}
-                            >
-                                <Text style={{ color: "#A8A4A4" }}>Your</Text>
-                                <Text
-                                    style={{
-                                        color: "#000",
-                                        fontWeight: "900"
-                                    }}
-                                >
-                                    Coupons
-                                </Text>
-                            </View>
+                            {<Logo />}
+                            {<HeaderTitle title="Coupons" subText="Your" />}
                         </View>
                     )
                 };
@@ -105,15 +67,7 @@ const CouponsStack = createStackNavigator(
         }
     },
     {
-        defaultNavigationOptions: {
-            headerStyle: {
-                backgroundColor: "#fff"
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-                fontWeight: "bold"
-            }
-        },
+        defaultNavigationOptions,
         navigationOptions: {
             tabBarLabel: "Coupons"
         }
@@ -137,49 +91,13 @@ const CreateCouponsStack = createStackNavigator(
                                 marginTop: -20
                             }}
                         >
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderColor: "#EDEDED",
-                                    borderWidth: 1,
-                                    height: 50,
-                                    width: 50,
-                                    marginLeft: 10,
-                                    padding: 5,
-                                    borderRadius: 50
-                                }}
-                            >
-                                <Image
-                                    style={{
-                                        alignSelf: "center",
-                                        height: 37,
-                                        width: 37,
-                                        borderWidth: 1,
-                                        borderRadius: 30
-                                    }}
-                                    source={require("../../assets/ccd1.png")}
+                            {<Logo />}
+                            {
+                                <HeaderTitle
+                                    title="Create Coupons"
+                                    subText="Your"
                                 />
-                            </View>
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "flex-start",
-                                    justifyContent: "center",
-                                    marginLeft: 10
-                                }}
-                            >
-                                <Text style={{ color: "#A8A4A4" }}>Your</Text>
-                                <Text
-                                    style={{
-                                        color: "#000",
-                                        fontWeight: "900"
-                                    }}
-                                >
-                                    Create Coupons
-                                </Text>
-                            </View>
+                            }
                         </View>
                     )
                 };
@@ -187,15 +105,7 @@ const CreateCouponsStack = createStackNavigator(
         }
     },
     {
-        defaultNavigationOptions: {
-            headerStyle: {
-                backgroundColor: "#fff"
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-                fontWeight: "bold"
-            }
-        },
+        defaultNavigationOptions,
         navigationOptions: {
             tabBarLabel: "Create Coupons"
         }
@@ -218,49 +128,8 @@ const ClaimsStack = createStackNavigator(
                                 marginTop: -20
                             }}
                         >
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderColor: "#EDEDED",
-                                    borderWidth: 1,
-                                    height: 50,
-                                    width: 50,
-                                    marginLeft: 10,
-                                    padding: 5,
-                                    borderRadius: 50
-                                }}
-                            >
-                                <Image
-                                    style={{
-                                        alignSelf: "center",
-                                        height: 37,
-                                        width: 37,
-                                        borderWidth: 1,
-                                        borderRadius: 30
-                                    }}
-                                    source={require("../../assets/ccd1.png")}
-                                />
-                            </View>
-                            <View
-                                style={{
-                                    flex: 1,
-                                    alignItems: "flex-start",
-                                    justifyContent: "center",
-                                    marginLeft: 10
-                                }}
-                            >
-                                <Text style={{ color: "#A8A4A4" }}>Your</Text>
-                                <Text
-                                    style={{
-                                        color: "#000",
-                                        fontWeight: "900"
-                                    }}
-                                >
-                                    Claims
-                                </Text>
-                            </View>
+                            {<Logo />}
+                            {<HeaderTitle title="Claims" subText="Your" />}
                         </View>
                     )
                 };
@@ -268,15 +137,7 @@ const ClaimsStack = createStackNavigator(
         }
     },
     {
-        defaultNavigationOptions: {
-            headerStyle: {
-                backgroundColor: "#fff"
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-                fontWeight: "bold"
-            }
-        },
+        defaultNavigationOptions,
         navigationOptions: {
             tabBarLabel: "Claims"
         }
@@ -363,18 +224,6 @@ const TabsStackNavigator = createStackNavigator(
         }
     }
 );
-
-// tabBarIcon: ({tintColor}) =>
-//       <View style={{
-//           height: 80,
-//           width: 80,
-//           borderRadius: 100,
-//           backgroundColor: '#FE6D64',
-//           paddingTop: 15}}>
-//         <Icon name="ios-heart-outline" type="ionicon" size={45}
-//          color{tintColor}/>
-//       </View>
-//     }
 
 const AppSwitchNavigator = createSwitchNavigator({
     Dashboard: { screen: TabsStackNavigator },
