@@ -11,5 +11,6 @@
 import { default as HeaderTitle } from "./Titles/HeaderTitle";
 import { default as Logo } from "./Image/Logo";
 import QRScanner from "./Scanner/QRScanner";
+import DetailContainer from "./Details/DetailContainer";
 
-export { Logo, HeaderTitle, QRScanner };
+export { Logo, HeaderTitle, QRScanner, DetailContainer };

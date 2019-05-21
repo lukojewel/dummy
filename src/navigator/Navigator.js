@@ -77,13 +77,45 @@ const CreateCouponsStack = createStackNavigator(
     {
         CreateCoupons: {
             screen: CreateCoupons,
-            navigationOptions: { tabBarVisible: false }
+            navigationOptions: ({ navigation }) => {
+                return {
+                    headerTitle: "Create Coupons",
+                    headerLeft: (
+                        <View
+                            style={{
+                                flex: 1,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                marginTop: -20
+                            }}
+                        >
+                            <CustomIcon
+                                name="lt_back"
+                                size={24}
+                                style={{
+                                    color: "#000",
+                                    fontWeight: "900",
+                                    alignItems: "flex-start",
+                                    marginLeft: 10,
+                                    marginRight: 10
+                                }}
+                                onPress={() => {
+                                    navigation.goBack(null);
+                                }}
+                            />
+                            <HeaderTitle title="New Coupon" subText="Create" />
+                        </View>
+                    )
+                };
+            }
         }
     },
     {
         defaultNavigationOptions,
         navigationOptions: {
-            tabBarLabel: "Create Coupons"
+            tabBarLabel: "Create Coupons",
+            tabBarVisible: false
         }
     }
 );
@@ -93,7 +125,7 @@ const ClaimsStack = createStackNavigator(
             screen: Claims,
             navigationOptions: ({ navigation }) => {
                 return {
-                    // headerTitle: "Claims",
+                    headerTitle: "Claims",
                     headerLeft: (
                         <View
                             style={{
@@ -184,7 +216,31 @@ const MainTabNavigator = createBottomTabNavigator(
 );
 const TabsStackNavigator = createStackNavigator({
     MainTabNavigator: MainTabNavigator,
-    QRScanner: QRScanner,
+    QRScanner: {
+        screen: QRScanner,
+        navigationOptions: ({ navigation }) => {
+            return {
+                // header: null,
+                headerLeft: (
+                    <CustomIcon
+                        name="lt_back"
+                        size={24}
+                        style={{
+                            color: "#000",
+                            fontWeight: "900",
+                            alignItems: "flex-start",
+                            marginLeft: 10,
+                            marginRight: 10
+                        }}
+                        onPress={() => {
+                            navigation.pop();
+                        }}
+                    />
+                ),
+                headerTitle: "Scan QR code"
+            };
+        }
+    },
     CouponsDetails: {
         screen: CouponsDetails,
         navigationOptions: () => {
@@ -206,7 +262,6 @@ const TabsStackNavigator = createStackNavigator({
 });
 
 const AppSwitchNavigator = createSwitchNavigator({
-    Dashboard: { screen: TabsStackNavigator },
     Tabs: { screen: TabsStackNavigator },
     Users: { screen: Users }
 });

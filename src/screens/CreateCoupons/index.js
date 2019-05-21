@@ -6,23 +6,6 @@
  * @desc [description]
  */
 
-import React, { Component } from "react";
-import { Text, View } from "react-native";
+import NewCoupon from "./NewCoupon";
 
-export class index extends Component {
-    render() {
-        return (
-            <View
-                style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center"
-                }}
-            >
-                <Text> Create Coupons </Text>
-            </View>
-        );
-    }
-}
-
-export default index;
+export default NewCoupon;

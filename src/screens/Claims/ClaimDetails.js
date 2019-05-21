@@ -17,6 +17,7 @@ import {
     RefreshControl
 } from "react-native";
 
+import { DetailContainer } from "../../common";
 import CustomIcon from "../../Icons/CustomIcon";
 
 const HEADER_MAX_HEIGHT = 300;
@@ -41,21 +42,13 @@ export default class ClaimDetails extends Component {
         return (
             <View style={styles.scrollViewContent}>
                 <View>
-                    {data.map((_, i) => (
+                    <DetailContainer />
+                    {/* {data.map((_, i) => (
                         <View key={i} style={styles.row}>
                             <Text>{i}</Text>
                         </View>
-                    ))}
+                    ))} */}
                 </View>
-            </View>
-        );
-        return (
-            <View style={styles.scrollViewContent}>
-                {data.map((_, i) => (
-                    <View key={i} style={styles.row}>
-                        <Text>{i}</Text>
-                    </View>
-                ))}
             </View>
         );
     }
@@ -248,8 +241,6 @@ const styles = StyleSheet.create({
     },
     scrollViewContent: {
         // iOS uses content inset, which acts like padding.
-
-        padding: 20,
         paddingTop: Platform.OS !== "ios" ? HEADER_MAX_HEIGHT : 0
     },
     row: {
