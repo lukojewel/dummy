@@ -16,21 +16,20 @@ const Logo = () => {
                 flex: 1,
                 alignItems: "center",
                 justifyContent: "center",
-                borderColor: "#EDEDED",
-                borderWidth: 1,
                 height: 50,
                 width: 50,
                 marginLeft: 10,
                 padding: 5,
                 borderRadius: 50,
-                shadowColor: "#EDEDED",
+                overflow: "hidden",
+                shadowColor: "#000",
                 shadowOffset: {
                     width: 0,
                     height: 4
                 },
-                shadowOpacity: 0.18,
-                shadowRadius: 1,
-                elevation: 1
+                shadowOpacity: 0.4,
+                shadowRadius: 3,
+                elevation: 2
             }}
         >
             <Image

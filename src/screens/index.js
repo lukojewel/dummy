@@ -7,9 +7,19 @@
  */
 
 import Splash from "./Splash";
-import Coupons from "./Coupons";
-import Claims from "./Claims";
+import Coupons from "./Coupons/Coupons";
+import CouponsDetails from "./Coupons/CouponsDetails";
+import Claims from "./Claims/Claims";
+import ClaimDetails from "./Claims/ClaimDetails";
 import CreateCoupons from "./CreateCoupons";
 import Users from "./Users";
 
-export { Splash, Coupons, CreateCoupons, Claims, Users };
+export {
+    Splash,
+    Coupons,
+    CreateCoupons,
+    Claims,
+    Users,
+    CouponsDetails,
+    ClaimDetails
+};

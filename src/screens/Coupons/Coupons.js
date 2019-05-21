@@ -34,7 +34,8 @@ export class index extends Component {
         return (
             <View
                 style={{
-                    padding: 10
+                    padding: 10,
+                    flex: 1
                 }}
             >
                 <View
@@ -48,6 +49,7 @@ export class index extends Component {
                         onPress={() => this.tabSelect("latest")}
                         buttonStyle={{
                             padding: 6,
+                            marginRight: 20,
                             borderColor:
                                 this.state.isActive == "latest" ? "red" : null
                         }}
@@ -68,6 +70,7 @@ export class index extends Component {
                         onPress={() => this.tabSelect("expiring_soon")}
                         buttonStyle={{
                             padding: 6,
+                            marginRight: 20,
                             borderColor:
                                 this.state.isActive == "expiring_soon"
                                     ? "red"
@@ -86,13 +89,13 @@ export class index extends Component {
                         }
                     />
                 </View>
-                <View style={{ marginBottom: 80 }}>{this.renderContent()}</View>
+                <View>{this.renderContent()}</View>
 
                 {/* Slipet for scan fixed icon on bottom right corner */}
                 <TouchableOpacity
                     style={{
                         position: "absolute",
-                        bottom: 60,
+                        bottom: 20,
                         right: 20,
                         zIndex: 100,
                         height: 60,
@@ -234,8 +237,8 @@ export class index extends Component {
                     >
                         <View
                             style={{
-                                height: 300,
-                                backgroundColor: "#EDEDED"
+                                height: 300
+                                // backgroundColor: "#EDEDED"
                             }}
                         >
                             <View

@@ -34,7 +34,8 @@ export class index extends Component {
         return (
             <View
                 style={{
-                    padding: 10
+                    padding: 10,
+                    flex: 1
                 }}
             >
                 <View
@@ -48,6 +49,7 @@ export class index extends Component {
                         onPress={() => this.tabSelect("latest")}
                         buttonStyle={{
                             padding: 6,
+                            marginRight: 20,
                             borderColor:
                                 this.state.isActive == "latest" ? "red" : null
                         }}
@@ -64,35 +66,36 @@ export class index extends Component {
                         }
                     />
                     <Button
-                        title="Expiring soon"
-                        onPress={() => this.tabSelect("expiring_soon")}
+                        title="No. of claims"
+                        onPress={() => this.tabSelect("no_of_claims")}
                         buttonStyle={{
                             padding: 6,
+                            marginRight: 20,
                             borderColor:
-                                this.state.isActive == "expiring_soon"
+                                this.state.isActive == "no_of_claims"
                                     ? "red"
                                     : null
                         }}
                         titleStyle={{
                             color:
-                                this.state.isActive == "expiring_soon"
+                                this.state.isActive == "no_of_claims"
                                     ? "#333"
                                     : "#666"
                         }}
                         type={
-                            this.state.isActive == "expiring_soon"
+                            this.state.isActive == "no_of_claims"
                                 ? "outline"
                                 : "clear"
                         }
                     />
                 </View>
-                <View style={{ marginBottom: 80 }}>{this.renderContent()}</View>
+                <View>{this.renderContent()}</View>
 
                 {/* Slipet for scan fixed icon on bottom right corner */}
                 <TouchableOpacity
                     style={{
                         position: "absolute",
-                        bottom: 60,
+                        bottom: 20,
                         right: 20,
                         zIndex: 100,
                         height: 60,
@@ -146,82 +149,80 @@ export class index extends Component {
                             />
                         }
                     >
-                        {[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].map(
-                            (item, index) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={index}
+                        {[1].map((item, index) => {
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={{
+                                        flex: 1,
+                                        flexDirection: "row",
+                                        marginBottom: 10,
+                                        borderWidth: 1,
+                                        borderColor: "#EDEDED",
+                                        borderRadius: 6,
+                                        overflow: "hidden"
+                                    }}
+                                    onPress={() =>
+                                        this.props.navigation.navigate(
+                                            "ClaimDetails"
+                                        )
+                                    }
+                                    activeOpacity={0.8}
+                                >
+                                    <View
                                         style={{
                                             flex: 1,
                                             flexDirection: "row",
-                                            marginBottom: 10,
-                                            borderWidth: 1,
-                                            borderColor: "#EDEDED",
-                                            borderRadius: 6,
-                                            overflow: "hidden"
+                                            height: 100
                                         }}
-                                        onPress={() =>
-                                            this.props.navigation.navigate(
-                                                "CouponsDetails"
-                                            )
-                                        }
-                                        activeOpacity={0.8}
                                     >
                                         <View
                                             style={{
-                                                flex: 1,
-                                                flexDirection: "row",
-                                                height: 100
+                                                flex: 2,
+                                                overflow: "hidden"
                                             }}
                                         >
-                                            <View
+                                            <Image
                                                 style={{
-                                                    flex: 2,
-                                                    overflow: "hidden"
+                                                    flex: 1,
+                                                    alignSelf: "center"
                                                 }}
-                                            >
-                                                <Image
-                                                    style={{
-                                                        flex: 1,
-                                                        alignSelf: "center"
-                                                    }}
-                                                    resizeMode="contain"
-                                                    source={require("../../../assets/ccd-coffee.png")}
-                                                />
-                                            </View>
-                                            <View
-                                                style={{
-                                                    flex: 5,
-                                                    alignItems: "flex-start",
-                                                    justifyContent: "center",
-                                                    paddingHorizontal: 20
-                                                }}
-                                            >
-                                                <Text>
-                                                    Flat {item}0% discount on
-                                                    all our products for first
-                                                    100 couples
-                                                </Text>
-                                                <Text
-                                                    style={{
-                                                        color: "red",
-                                                        fontWeight: "400",
-                                                        fontSize: 12
-                                                    }}
-                                                >
-                                                    30 days left
-                                                </Text>
-                                            </View>
+                                                resizeMode="contain"
+                                                source={require("../../../assets/ccd-coffee.png")}
+                                            />
                                         </View>
-                                    </TouchableOpacity>
-                                );
-                            }
-                        )}
+                                        <View
+                                            style={{
+                                                flex: 5,
+                                                alignItems: "flex-start",
+                                                justifyContent: "center",
+                                                paddingHorizontal: 20
+                                            }}
+                                        >
+                                            <Text>
+                                                Flat {item}0% discount on all
+                                                our products for first 100
+                                                couples
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    color: "red",
+                                                    fontWeight: "400",
+                                                    fontSize: 12
+                                                }}
+                                            >
+                                                30 days left
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            );
+                        })}
                     </ScrollView>
                 );
                 break;
 
-            case "expiring_soon":
+            case "no_of_claims":
                 return (
                     <ScrollView
                         contentContainerStyle={styles.contentContainer}
@@ -234,8 +235,8 @@ export class index extends Component {
                     >
                         <View
                             style={{
-                                height: 300,
-                                backgroundColor: "#EDEDED"
+                                height: 300
+                                // backgroundColor: "#EDEDED"
                             }}
                         >
                             <View

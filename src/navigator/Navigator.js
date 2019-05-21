@@ -17,10 +17,18 @@ import {
 import Icon from "@expo/vector-icons/Ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { Splash, Users, Coupons, Claims, CreateCoupons } from "../screens";
+import {
+    Splash,
+    Users,
+    Coupons,
+    Claims,
+    CreateCoupons,
+    CouponsDetails,
+    ClaimDetails
+} from "../screens";
 import CustomIcon from "../Icons/CustomIcon";
 
-import { Logo, HeaderTitle } from "../common";
+import { Logo, HeaderTitle, QRScanner } from "../common";
 
 const defaultNavigationOptions = {
     headerStyle: {
@@ -31,12 +39,6 @@ const defaultNavigationOptions = {
         fontWeight: "bold"
     }
 };
-
-const Detail = props => (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Detail</Text>
-    </View>
-);
 
 const CouponsStack = createStackNavigator(
     {
@@ -61,9 +63,6 @@ const CouponsStack = createStackNavigator(
                     )
                 };
             }
-        },
-        Detail: {
-            screen: Detail
         }
     },
     {
@@ -78,30 +77,7 @@ const CreateCouponsStack = createStackNavigator(
     {
         CreateCoupons: {
             screen: CreateCoupons,
-            navigationOptions: ({ navigation }) => {
-                return {
-                    // headerTitle: "Create Coupons",
-                    headerLeft: (
-                        <View
-                            style={{
-                                flex: 1,
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                marginTop: -20
-                            }}
-                        >
-                            {<Logo />}
-                            {
-                                <HeaderTitle
-                                    title="Create Coupons"
-                                    subText="Your"
-                                />
-                            }
-                        </View>
-                    )
-                };
-            }
+            navigationOptions: { tabBarVisible: false }
         }
     },
     {
@@ -129,7 +105,7 @@ const ClaimsStack = createStackNavigator(
                             }}
                         >
                             {<Logo />}
-                            {<HeaderTitle title="Claims" subText="Your" />}
+                            {<HeaderTitle title="Claims" subText="All" />}
                         </View>
                     )
                 };
@@ -206,24 +182,28 @@ const MainTabNavigator = createBottomTabNavigator(
         }
     }
 );
-const TabsStackNavigator = createStackNavigator(
-    {
-        MainTabNavigator: MainTabNavigator
-    },
-    {
-        defaultNavigationOptions: ({ navigation }) => {
+const TabsStackNavigator = createStackNavigator({
+    MainTabNavigator: MainTabNavigator,
+    QRScanner: QRScanner,
+    CouponsDetails: {
+        screen: CouponsDetails,
+        navigationOptions: () => {
             return {
-                headerLeft: (
-                    <Icon
-                        style={{ paddingLeft: 10 }}
-                        name="md-menu"
-                        size={30}
-                    />
-                )
+                header: null,
+                headerTitle: "Coupon Details"
+            };
+        }
+    },
+    ClaimDetails: {
+        screen: ClaimDetails,
+        navigationOptions: () => {
+            return {
+                header: null,
+                headerTitle: "Claim Details"
             };
         }
     }
-);
+});
 
 const AppSwitchNavigator = createSwitchNavigator({
     Dashboard: { screen: TabsStackNavigator },

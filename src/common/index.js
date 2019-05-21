@@ -10,5 +10,6 @@
 // import { default as ZeroState } from "./ZeroState/ZeroState";
 import { default as HeaderTitle } from "./Titles/HeaderTitle";
 import { default as Logo } from "./Image/Logo";
+import QRScanner from "./Scanner/QRScanner";
 
-export { Logo, HeaderTitle };
+export { Logo, HeaderTitle, QRScanner };
