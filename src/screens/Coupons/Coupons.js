@@ -272,6 +272,7 @@ export default index;
 
 const styles = StyleSheet.create({
     contentContainer: {
-        paddingVertical: 5
+        paddingVertical: 5,
+        marginBottom: 20
     }
 });
