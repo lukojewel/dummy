@@ -6,20 +6,7 @@
  * @desc [description]
  */
 
-import React, { Component } from "react";
-import { Text, View, Button } from "react-native";
+import Login from "./Login";
+import { Signup, LocationDetails, ShopDetails } from "./Signup";
 
-export default class index extends Component {
-    render() {
-        return (
-            <View style={{ flex: 1 }}>
-                <Text> Users </Text>
-                <Button
-                    onPress={() => this.props.navigation.navigate("Tabs")}
-                    title="Learn More"
-                    color="#841584"
-                />
-            </View>
-        );
-    }
-}
+export { Signup, LocationDetails, ShopDetails, Login };

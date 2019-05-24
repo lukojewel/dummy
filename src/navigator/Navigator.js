@@ -27,8 +27,8 @@ import {
     ClaimDetails
 } from "../screens";
 import CustomIcon from "../Icons/CustomIcon";
-
 import { Logo, HeaderTitle, QRScanner } from "../common";
+import { Signup, Login, ShopDetails, LocationDetails } from "../screens/Users";
 
 const defaultNavigationOptions = {
     headerStyle: {
@@ -261,9 +261,50 @@ const TabsStackNavigator = createStackNavigator({
     }
 });
 
+const RegisterStack = createStackNavigator({
+    Signup: {
+        screen: Signup,
+        navigationOptions: () => {
+            return {
+                header: null
+            };
+        }
+    },
+    ShopDetails: {
+        screen: ShopDetails,
+        navigationOptions: () => {
+            return {
+                header: null
+                // headerTitle: "Shop Details"
+            };
+        }
+    },
+    LocationDetails: {
+        screen: LocationDetails,
+        navigationOptions: () => {
+            return {
+                header: null
+                // headerTitle: "Location Details"
+            };
+        }
+    }
+});
+
+const LoginStack = createStackNavigator({
+    Login: {
+        screen: Login,
+        navigationOptions: () => {
+            return {
+                header: null
+            };
+        }
+    }
+});
+
 const AppSwitchNavigator = createSwitchNavigator({
-    Tabs: { screen: TabsStackNavigator },
-    Users: { screen: Users }
+    UserLogin: { screen: LoginStack },
+    Register: { screen: RegisterStack },
+    Tabs: { screen: TabsStackNavigator }
 });
 
 export default createAppContainer(AppSwitchNavigator);
