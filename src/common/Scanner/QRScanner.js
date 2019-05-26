@@ -35,8 +35,7 @@ export default class BarcodeScanner extends React.Component {
                 <View
                     style={{
                         height: height * 0.6,
-                        alignItems: "center",
-                        justifyContent: "center"
+                        width: width
                     }}
                 >
                     {hasCameraPermission === null ? (
@@ -51,7 +50,6 @@ export default class BarcodeScanner extends React.Component {
                             style={{
                                 justifyContent: "center",
                                 alignItems: "center",
-                                alignSelf: "center",
                                 flex: 1
                             }}
                         >
@@ -85,11 +83,13 @@ export default class BarcodeScanner extends React.Component {
 
                 <View
                     style={{
-                        marginHorizontal: 20
+                        paddingHorizontal: 20,
+                        backgroundColor: "#FFF"
                         // position: "absolute",
                         // bottom: 0,
                         // left: 0,
                         // right: 0,
+                        // width: width,
                         // height: height * 0.4
                     }}
                 >
