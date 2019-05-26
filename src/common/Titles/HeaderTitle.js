@@ -19,11 +19,16 @@ const HeaderTitle = ({ title, subText }) => {
                 marginLeft: 10
             }}
         >
-            {subText && <Text style={{ color: "#A8A4A4" }}>{subText}</Text>}
+            {subText && (
+                <Text style={{ color: "#A8A4A4", fontSize: 14 }}>
+                    {subText}
+                </Text>
+            )}
             <Text
                 style={{
                     color: "#000",
-                    fontWeight: "900"
+                    fontWeight: "900",
+                    fontSize: 14
                 }}
             >
                 {title}

@@ -8,70 +8,150 @@
 "use strict";
 
 import React, { Component } from "react";
+import { Text, View, StyleSheet, Dimensions } from "react-native";
+import { Constants, Permissions, BarCodeScanner } from "expo";
 
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    Linking
-} from "react-native";
-// import * as Permissions from "expo-permissions";
-import QRCodeScanner from "react-native-qrcode-scanner";
+import { Input, Button } from "react-native-elements";
 
-export default class QRScanner extends Component {
-    onSuccess = e => {
-        Linking.openURL(e.data).catch(err =>
-            console.error("An error occured", err)
-        );
+const { height, width } = Dimensions.get("window");
+
+export default class BarcodeScanner extends React.Component {
+    state = {
+        hasCameraPermission: null,
+        scanned: false,
+        code: ""
     };
 
-    // async componentDidMount() {
-    //     const { status } = await Permissions.getAsync(
-    //         Permissions.NOTIFICATIONS
-    //     );
-    //     if (status !== "granted") {
-    //         alert(
-    //             "Hey! You might want to enable notifications for my app, they are good."
-    //         );
-    //     } else {
-    //         alert("Permission granted");
-    //     }
-    // }
+    async componentDidMount() {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        this.setState({ hasCameraPermission: status === "granted" });
+    }
 
     render() {
+        const { hasCameraPermission, scanned } = this.state;
+
         return (
-            <QRCodeScanner
-                onRead={this.onSuccess}
-                onCameraReady={e => console.log(e)}
-                onMountError={e => console.log(e)}
-                topContent={<Text style={styles.centerText}>hi</Text>}
-                bottomContent={
-                    <TouchableOpacity style={styles.buttonTouchable}>
-                        <Text style={styles.buttonText}>OK. Got it!</Text>
-                    </TouchableOpacity>
-                }
-            />
+            <View style={{ flex: 1 }}>
+                <View
+                    style={{
+                        height: height * 0.6,
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                >
+                    {hasCameraPermission === null ? (
+                        <Text>Requesting for camera permission</Text>
+                    ) : hasCameraPermission === false ? (
+                        <Text>No access to camera</Text>
+                    ) : (
+                        <BarCodeScanner
+                            onBarCodeScanned={
+                                scanned ? undefined : this.handleBarCodeScanned
+                            }
+                            style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "center",
+                                flex: 1
+                            }}
+                        >
+                            <View
+                                style={{
+                                    backgroundColor: "transparent",
+                                    height: 200,
+                                    width: 200,
+                                    borderWidth: 1,
+                                    borderRadius: 1,
+                                    borderStyle: "dashed",
+                                    flexDirection: "row",
+                                    borderColor: "#FFF"
+                                }}
+                            />
+
+                            {scanned && (
+                                <Button
+                                    title={"Tap to Scan Again"}
+                                    onPress={() =>
+                                        this.setState({
+                                            scanned: false,
+                                            code: ""
+                                        })
+                                    }
+                                />
+                            )}
+                        </BarCodeScanner>
+                    )}
+                </View>
+
+                <View
+                    style={{
+                        marginHorizontal: 20
+                        // position: "absolute",
+                        // bottom: 0,
+                        // left: 0,
+                        // right: 0,
+                        // height: height * 0.4
+                    }}
+                >
+                    <View
+                        style={{
+                            marginVertical: 10,
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }}
+                    >
+                        <Text style={{ fontWeight: "900", color: "#ed4c14" }}>
+                            OR
+                        </Text>
+                    </View>
+                    <View style={{ marginVertical: 10 }}>
+                        <Input
+                            placeholder="Code"
+                            label="Enter Offer Code"
+                            labelStyle={{
+                                fontWeight: "400",
+                                fontSize: 8,
+                                backgroundColor: "#FFF",
+                                position: "absolute",
+                                top: -15,
+                                left: 10,
+                                padding: 5
+                            }}
+                            containerStyle={{
+                                borderWidth: 1,
+                                borderRadius: 6,
+                                borderColor: "#EDEDED"
+                            }}
+                            inputContainerStyle={{
+                                borderBottomWidth: 0
+                            }}
+                            inputStyle={{
+                                fontSize: 12
+                            }}
+                            value={this.state.code}
+                            type="password"
+                            // errorStyle={{ color: "red" }}
+                            // errorMessage="ENTER A VALID ERROR HERE"
+                        />
+                    </View>
+                    <View style={{ marginVertical: 10 }}>
+                        <Button
+                            title="Proceed"
+                            type="outline"
+                            buttonStyle={{ borderColor: "#ed4c14" }}
+                            titleStyle={{ color: "#ed4c14" }}
+                            onPress={() =>
+                                this.props.navigation.navigate("Tabs")
+                            }
+                        />
+                    </View>
+                </View>
+            </View>
         );
     }
-}
 
-const styles = StyleSheet.create({
-    centerText: {
-        flex: 1,
-        fontSize: 18,
-        padding: 32,
-        color: "#777"
-    },
-    textBold: {
-        fontWeight: "500",
-        color: "#000"
-    },
-    buttonText: {
-        fontSize: 21,
-        color: "rgb(0,122,255)"
-    },
-    buttonTouchable: {
-        padding: 16
-    }
-});
+    handleBarCodeScanned = ({ type, data }) => {
+        this.setState({ scanned: true, code: data });
+        // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    };
+}

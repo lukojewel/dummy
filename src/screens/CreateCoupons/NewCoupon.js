@@ -201,11 +201,11 @@ const style = StyleSheet.create({
     imageUpload: {
         flex: 1,
         borderWidth: 1,
-        borderColor: "#ef7f0e",
+        borderColor: "#ed4c14",
         borderRadius: 6,
         borderStyle: "dashed",
         flexDirection: "row",
         padding: 20,
-        backgroundColor: "#ffe6de5e"
+        backgroundColor: "#ed4c14"
     }
 });
