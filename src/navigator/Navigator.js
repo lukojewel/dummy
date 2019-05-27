@@ -24,11 +24,20 @@ import {
     Claims,
     CreateCoupons,
     CouponsDetails,
-    ClaimDetails
+    ClaimDetails,
+    Profile
 } from "../screens";
 import CustomIcon from "../Icons/CustomIcon";
 import { Logo, HeaderTitle, QRScanner } from "../common";
-import { Signup, Login, ShopDetails, LocationDetails } from "../screens/Users";
+import {
+    Signup,
+    LocationDetails,
+    ShopDetails,
+    Login,
+    PhoneVerification,
+    OTPVerification
+} from "../screens/Users";
+import { Button } from "react-native-elements";
 
 const defaultNavigationOptions = {
     headerStyle: {
@@ -51,14 +60,14 @@ const CouponsStack = createStackNavigator(
                         <View
                             style={{
                                 flex: 1,
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                marginTop: -20
+                                justifyContent: "flex-start",
+                                flexDirection: "row"
                             }}
                         >
-                            {<Logo />}
-                            {<HeaderTitle title="Coupons" subText="Your" />}
+                            <Logo
+                                onPress={() => navigation.navigate("Profile")}
+                            />
+                            <HeaderTitle title="Coupons" subText="Your" />
                         </View>
                     )
                 };
@@ -125,19 +134,18 @@ const ClaimsStack = createStackNavigator(
             screen: Claims,
             navigationOptions: ({ navigation }) => {
                 return {
-                    headerTitle: "Claims",
                     headerLeft: (
                         <View
                             style={{
                                 flex: 1,
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                marginTop: -20
+                                justifyContent: "flex-start",
+                                flexDirection: "row"
                             }}
                         >
-                            {<Logo />}
-                            {<HeaderTitle title="Claims" subText="All" />}
+                            <Logo
+                                onPress={() => navigation.navigate("Profile")}
+                            />
+                            <HeaderTitle title="Claims" subText="All" />
                         </View>
                     )
                 };
@@ -193,7 +201,7 @@ const MainTabNavigator = createBottomTabNavigator(
                         >
                             <CustomIcon
                                 name="lt_plus"
-                                size={25}
+                                size={20}
                                 color={tintColor}
                             />
                         </View>
@@ -202,9 +210,8 @@ const MainTabNavigator = createBottomTabNavigator(
                     iconName = `lt_claim`;
                 }
 
-                // You can return any component that you like here!
                 return (
-                    <CustomIcon name={iconName} size={24} color={tintColor} />
+                    <CustomIcon name={iconName} size={16} color={tintColor} />
                 );
             }
         }),
@@ -220,15 +227,12 @@ const TabsStackNavigator = createStackNavigator({
         screen: QRScanner,
         navigationOptions: ({ navigation }) => {
             return {
-                // header: null,
                 headerLeft: (
                     <View
                         style={{
                             flex: 1,
                             justifyContent: "flex-start",
-                            flexDirection: "row",
-                            paddingLeft: 10,
-                            paddingTop: 9
+                            flexDirection: "row"
                         }}
                     >
                         <CustomIcon
@@ -237,9 +241,7 @@ const TabsStackNavigator = createStackNavigator({
                             style={[styles.headerIcon, { color: "#000" }]}
                             onPress={() => navigation.pop()}
                         />
-                        <Text style={[styles.title, { color: "#000" }]}>
-                            Scan QR code
-                        </Text>
+                        <HeaderTitle title="Scan QR code" />
                     </View>
                 )
             };
@@ -260,6 +262,49 @@ const TabsStackNavigator = createStackNavigator({
             return {
                 header: null,
                 headerTitle: "Claim Details"
+            };
+        }
+    },
+    Profile: {
+        screen: Profile,
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerLeft: (
+                    <View
+                        style={{
+                            flex: 1,
+                            justifyContent: "flex-start",
+                            flexDirection: "row"
+                        }}
+                    >
+                        <CustomIcon
+                            name="lt_cancel"
+                            size={15}
+                            style={[styles.headerIcon, { color: "#000" }]}
+                            onPress={() => navigation.pop()}
+                        />
+                        <HeaderTitle title="Profile" subText="Store" />
+                    </View>
+                ),
+                headerRight: (
+                    <Button
+                        title="Edit Profile"
+                        type="outline"
+                        buttonStyle={{
+                            marginVertical: 14,
+                            marginHorizontal: 20,
+                            borderColor: "#ee3a43",
+                            borderRadius: 3.3
+                        }}
+                        titleStyle={{
+                            paddingHorizontal: 10,
+                            paddingVertical: 20,
+                            color: "#ed4c14",
+                            fontFamily: "Poppins-SemiBold",
+                            fontSize: 10
+                        }}
+                    />
+                )
             };
         }
     }
@@ -302,6 +347,54 @@ const LoginStack = createStackNavigator({
                 header: null
             };
         }
+    },
+    PhoneVerification: {
+        screen: PhoneVerification,
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerLeft: (
+                    <View
+                        style={{
+                            flex: 1,
+                            justifyContent: "flex-start",
+                            flexDirection: "row"
+                        }}
+                    >
+                        <CustomIcon
+                            name="lt_back"
+                            size={15}
+                            style={[styles.headerIcon, { color: "#000" }]}
+                            onPress={() => navigation.pop()}
+                        />
+                        <HeaderTitle title="Verification" subText="Phone" />
+                    </View>
+                )
+            };
+        }
+    },
+    OTPVerification: {
+        screen: OTPVerification,
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerLeft: (
+                    <View
+                        style={{
+                            flex: 1,
+                            justifyContent: "flex-start",
+                            flexDirection: "row"
+                        }}
+                    >
+                        <CustomIcon
+                            name="lt_back"
+                            size={15}
+                            style={[styles.headerIcon, { color: "#000" }]}
+                            onPress={() => navigation.pop()}
+                        />
+                        <HeaderTitle title="Verification" subText="OTP" />
+                    </View>
+                )
+            };
+        }
     }
 });
 
@@ -316,15 +409,12 @@ export default createAppContainer(AppSwitchNavigator);
 const styles = StyleSheet.create({
     title: {
         color: "#fff",
-        fontWeight: "900",
         fontSize: 14,
-        marginTop: -2,
+        lineHeight: 16,
         fontFamily: "Poppins-SemiBold"
     },
     headerIcon: {
         color: "#fff",
-        fontWeight: "900",
-        alignItems: "flex-start",
-        marginRight: 15
+        margin: 20
     }
 });

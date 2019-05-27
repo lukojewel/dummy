@@ -6,7 +6,14 @@
  * @desc [description]
  */
 
-import Login from "./Login";
+import { Login, PhoneVerification, OTPVerification } from "./Login";
 import { Signup, LocationDetails, ShopDetails } from "./Signup";
 
-export { Signup, LocationDetails, ShopDetails, Login };
+export {
+    Signup,
+    LocationDetails,
+    ShopDetails,
+    Login,
+    PhoneVerification,
+    OTPVerification
+};

@@ -7,42 +7,43 @@
  */
 
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 
-const Logo = () => {
+const Logo = props => {
     return (
-        <View
+        <TouchableOpacity
+            activeOpacity={0.8}
             style={{
                 flex: 1,
                 alignItems: "center",
                 justifyContent: "center",
-                height: 50,
-                width: 50,
-                marginLeft: 10,
-                padding: 5,
-                borderRadius: 50,
+                height: 40,
+                width: 40,
+                padding: 3,
+                marginHorizontal: 20,
+                marginVertical: 9,
+                borderRadius: 40,
                 overflow: "hidden",
-                shadowColor: "#000",
+                shadowColor: "#EDEDED",
                 shadowOffset: {
                     width: 0,
-                    height: 4
+                    height: 2
                 },
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 2
+                shadowOpacity: 0.1,
+                shadowRadius: 1,
+                elevation: 1.2
             }}
+            onPress={props.onPress}
         >
             <Image
                 style={{
                     alignSelf: "center",
-                    height: 37,
-                    width: 37,
-                    borderWidth: 1,
-                    borderRadius: 30
+                    height: 32,
+                    width: 21
                 }}
-                source={require("../../../assets/ccd1.png")}
+                source={require("../../../assets/logo.png")}
             />
-        </View>
+        </TouchableOpacity>
     );
 };
 

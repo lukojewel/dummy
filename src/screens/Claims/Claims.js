@@ -48,16 +48,21 @@ export class index extends Component {
                         title="Latest"
                         onPress={() => this.tabSelect("latest")}
                         buttonStyle={{
-                            padding: 6,
+                            paddingHorizontal: 11,
+                            paddingVertical: 9,
                             marginRight: 20,
                             borderColor:
-                                this.state.isActive == "latest" ? "red" : null
+                                this.state.isActive == "latest"
+                                    ? "#ed4c14"
+                                    : null
                         }}
                         titleStyle={{
+                            fontFamily: "Poppins-Regular",
+                            fontSize: 11,
                             color:
                                 this.state.isActive == "latest"
-                                    ? "#333"
-                                    : "#666"
+                                    ? "#000"
+                                    : "#a4a4a4"
                         }}
                         type={
                             this.state.isActive == "latest"
@@ -69,18 +74,20 @@ export class index extends Component {
                         title="No. of claims"
                         onPress={() => this.tabSelect("no_of_claims")}
                         buttonStyle={{
-                            padding: 6,
-                            marginRight: 20,
+                            paddingHorizontal: 11,
+                            paddingVertical: 9,
                             borderColor:
                                 this.state.isActive == "no_of_claims"
-                                    ? "red"
+                                    ? "#ed4c14"
                                     : null
                         }}
                         titleStyle={{
+                            fontFamily: "Poppins-Regular",
+                            fontSize: 11,
                             color:
                                 this.state.isActive == "no_of_claims"
-                                    ? "#333"
-                                    : "#666"
+                                    ? "#000"
+                                    : "#a4a4a4"
                         }}
                         type={
                             this.state.isActive == "no_of_claims"
@@ -98,10 +105,10 @@ export class index extends Component {
                         bottom: 20,
                         right: 20,
                         zIndex: 100,
-                        height: 60,
-                        width: 60,
-                        borderRadius: 100,
-                        backgroundColor: "tomato",
+                        height: 54,
+                        width: 54,
+                        borderRadius: 54,
+                        backgroundColor: "#ed4c14",
                         overflow: "hidden",
                         shadowColor: "#000",
                         shadowOffset: {
@@ -122,7 +129,7 @@ export class index extends Component {
                             justifyContent: "center"
                         }}
                     >
-                        <CustomIcon name="lt_qr_code" size={25} color="#FFF" />
+                        <CustomIcon name="lt_qr_code" size={20} color="#FFF" />
                     </View>
                 </TouchableOpacity>
             </View>
@@ -149,22 +156,23 @@ export class index extends Component {
                             />
                         }
                     >
-                        {[1].map((item, index) => {
+                        {[1, 2].map((item, index) => {
                             return (
                                 <TouchableOpacity
                                     key={index}
                                     style={{
                                         flex: 1,
+                                        height: 84,
                                         flexDirection: "row",
                                         marginBottom: 10,
                                         borderWidth: 1,
-                                        borderColor: "#EDEDED",
+                                        borderColor: "#e4e4e4",
                                         borderRadius: 6,
                                         overflow: "hidden"
                                     }}
                                     onPress={() =>
                                         this.props.navigation.navigate(
-                                            "ClaimDetails"
+                                            "CouponsDetails"
                                         )
                                     }
                                     activeOpacity={0.8}
@@ -172,14 +180,14 @@ export class index extends Component {
                                     <View
                                         style={{
                                             flex: 1,
-                                            flexDirection: "row",
-                                            height: 100
+                                            flexDirection: "row"
                                         }}
                                     >
                                         <View
                                             style={{
                                                 flex: 2,
-                                                overflow: "hidden"
+                                                width: 84,
+                                                height: 84
                                             }}
                                         >
                                             <Image
@@ -196,19 +204,28 @@ export class index extends Component {
                                                 flex: 5,
                                                 alignItems: "flex-start",
                                                 justifyContent: "center",
-                                                paddingHorizontal: 20
+                                                marginHorizontal: 4
                                             }}
                                         >
-                                            <Text>
+                                            <Text
+                                                style={{
+                                                    marginHorizontal: 20,
+                                                    fontFamily:
+                                                        "Poppins-Medium",
+                                                    fontSize: 12
+                                                }}
+                                            >
                                                 Flat {item}0% discount on all
                                                 our products for first 100
                                                 couples
                                             </Text>
                                             <Text
                                                 style={{
-                                                    color: "red",
-                                                    fontWeight: "400",
-                                                    fontSize: 12
+                                                    marginHorizontal: 20,
+                                                    marginTop: 5,
+                                                    fontFamily: "Poppins-Light",
+                                                    fontSize: 10,
+                                                    color: "#ed4c14"
                                                 }}
                                             >
                                                 30 days left
@@ -246,7 +263,13 @@ export class index extends Component {
                                     alignSelf: "center"
                                 }}
                             >
-                                <Text style={{ color: "#666" }}>
+                                <Text
+                                    style={{
+                                        color: "#666",
+                                        fontFamily: "Poppins-Medium",
+                                        fontSize: 12
+                                    }}
+                                >
                                     Zero State
                                 </Text>
                             </View>
@@ -258,7 +281,7 @@ export class index extends Component {
             default:
                 return (
                     <ScrollView contentContainerStyle={styles.contentContainer}>
-                        <Text> Latest </Text>
+                        <Text> Loading... </Text>
                     </ScrollView>
                 );
                 break;

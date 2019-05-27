@@ -13,6 +13,7 @@ import Claims from "./Claims/Claims";
 import ClaimDetails from "./Claims/ClaimDetails";
 import CreateCoupons from "./CreateCoupons";
 import Users from "./Users";
+import Profile from "./Profile";
 
 export {
     Splash,
@@ -21,5 +22,6 @@ export {
     Claims,
     Users,
     CouponsDetails,
-    ClaimDetails
+    ClaimDetails,
+    Profile
 };

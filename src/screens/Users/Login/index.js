@@ -7,5 +7,7 @@
  */
 
 import Login from "./Login";
+import OTPVerification from "./OTPVerification";
+import PhoneVerification from "./PhoneVerification";
 
-export default Login;
+export { Login, PhoneVerification, OTPVerification };

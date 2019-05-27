@@ -16,19 +16,25 @@ const HeaderTitle = ({ title, subText }) => {
                 flex: 1,
                 alignItems: "flex-start",
                 justifyContent: "center",
-                marginLeft: 10
+                marginVertical: 13
             }}
         >
             {subText && (
-                <Text style={{ color: "#A8A4A4", fontSize: 14 }}>
+                <Text
+                    style={{
+                        color: "#9c9c9c",
+                        fontSize: 14,
+                        fontFamily: "Poppins-Light"
+                    }}
+                >
                     {subText}
                 </Text>
             )}
             <Text
                 style={{
-                    color: "#000",
-                    fontWeight: "900",
-                    fontSize: 14
+                    color: "#000000",
+                    fontSize: 16,
+                    fontFamily: "Poppins-Bold"
                 }}
             >
                 {title}

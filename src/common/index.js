@@ -12,5 +12,7 @@ import { default as HeaderTitle } from "./Titles/HeaderTitle";
 import { default as Logo } from "./Image/Logo";
 import QRScanner from "./Scanner/QRScanner";
 import DetailContainer from "./Details/DetailContainer";
+import InputField from "./FormElements/InputField";
+import Button from "./Button/Button";
 
-export { Logo, HeaderTitle, QRScanner, DetailContainer };
+export { Logo, HeaderTitle, QRScanner, DetailContainer, InputField, Button };

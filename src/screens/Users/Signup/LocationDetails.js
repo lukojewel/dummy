@@ -17,9 +17,8 @@ import {
     KeyboardAvoidingView
 } from "react-native";
 import { MapView, Location, Permissions } from "expo";
-import { Input, Button } from "react-native-elements";
 
-import { HeaderTitle } from "../../../common";
+import { HeaderTitle, InputField, Button } from "../../../common";
 import CustomIcon from "../../../Icons/CustomIcon";
 
 const { height, width } = Dimensions.get("window");
@@ -37,7 +36,6 @@ export class LocationDetails extends Component {
     }
 
     _handleMapRegionChange = mapRegion => {
-        console.log(mapRegion.nativeEvent.coordinate);
         this._getAddress(mapRegion.nativeEvent.coordinate);
         this.setState({
             mapRegion: {
@@ -49,7 +47,6 @@ export class LocationDetails extends Component {
 
     _getAddress = async coordinate => {
         let [address] = await Location.reverseGeocodeAsync(coordinate);
-        console.log(address);
         this.setState({
             address
         });
@@ -82,7 +79,6 @@ export class LocationDetails extends Component {
 
     _getCurrentLocation = async () => {
         let location = await Location.getCurrentPositionAsync({});
-        console.log(location);
         this.setState({ locationResult: JSON.stringify(location) });
         this._getAddress(location.coords);
         // Center the map on the location we just fetched.
@@ -98,22 +94,6 @@ export class LocationDetails extends Component {
 
     render() {
         const { mapRegion, address = {}, focusId } = this.state;
-        let labelStyle = {
-            fontWeight: "400",
-            fontSize: 12,
-            backgroundColor: "#FFF",
-            position: "absolute",
-            top: -15,
-            left: 10,
-            padding: 5
-        };
-
-        let initialLabelStyle = {
-            position: "absolute",
-            top: -15,
-            left: 10,
-            padding: 5
-        };
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
                 <ScrollView>
@@ -151,13 +131,10 @@ export class LocationDetails extends Component {
                             >
                                 <CustomIcon
                                     name="lt_back"
-                                    size={24}
+                                    size={15}
                                     style={{
-                                        color: "#000",
-                                        fontWeight: "900",
-                                        alignItems: "flex-start",
-                                        marginLeft: 10,
-                                        marginRight: 10
+                                        color: "#000"
+                                        // margin: 20
                                     }}
                                     onPress={() => {
                                         this.props.navigation.pop();
@@ -230,49 +207,26 @@ export class LocationDetails extends Component {
                             )}
                         </View>
                         <View style={{ marginHorizontal: 20, flex: 1 }}>
-                            <View style={{ marginVertical: 15 }}>
-                                <HeaderTitle
-                                    title="Location"
-                                    subText="Set Store"
-                                />
-                            </View>
-                            <View style={{ marginVertical: 15 }}>
-                                <Input
+                            <HeaderTitle title="Location" subText="Set Store" />
+                            <View style={{ marginVertical: 5 }}>
+                                <InputField
                                     placeholder="Location"
-                                    label={
-                                        focusId == "location" ? "Location" : ""
-                                    }
-                                    labelStyle={
-                                        focusId == "location"
-                                            ? labelStyle
-                                            : initialLabelStyle
-                                    }
-                                    containerStyle={{
-                                        borderWidth: 1,
-                                        borderRadius: 6,
-                                        borderColor: "#EDEDED"
-                                    }}
-                                    inputContainerStyle={{
-                                        borderBottomWidth: 0
-                                    }}
-                                    inputStyle={{
-                                        fontSize: 14
-                                    }}
+                                    id="location"
+                                    focusId={focusId}
                                     type="password"
-                                    onFocus={() =>
-                                        this._onFocusAnimation("location")
-                                    }
+                                    onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
-                                    // errorStyle={{ color: "red" }}
-                                    // errorMessage="ENTER A VALID ERROR HERE"
+                                    // errorMessage=""
                                 />
                             </View>
-                            <View style={{ marginVertical: 15 }}>
+                            <View
+                                style={{
+                                    marginVertical: 5,
+                                    flexDirection: "row"
+                                }}
+                            >
                                 <Button
                                     title="Confirm & Register"
-                                    type="outline"
-                                    buttonStyle={{ borderColor: "#ed4c14" }}
-                                    titleStyle={{ color: "#ed4c14" }}
                                     onPress={() =>
                                         this.props.navigation.navigate("Tabs")
                                     }
