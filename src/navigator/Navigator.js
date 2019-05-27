@@ -93,22 +93,14 @@ const CreateCouponsStack = createStackNavigator(
                         <View
                             style={{
                                 flex: 1,
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                marginTop: -20
+                                justifyContent: "flex-start",
+                                flexDirection: "row"
                             }}
                         >
                             <CustomIcon
                                 name="lt_back"
                                 size={15}
-                                style={{
-                                    color: "#000",
-                                    fontWeight: "900",
-                                    alignItems: "flex-start",
-                                    marginLeft: 10,
-                                    marginRight: 10
-                                }}
+                                style={[styles.headerIcon, { color: "#000" }]}
                                 onPress={() => {
                                     navigation.goBack(null);
                                 }}

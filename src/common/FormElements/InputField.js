@@ -45,7 +45,7 @@ const InputField = ({
 }) => {
     let _label = label || placeholder;
     return (
-        <View style={{ marginVertical: 5 }}>
+        <View style={{ marginVertical: 5, flex: 1 }}>
             <Input
                 placeholder={placeholder}
                 label={focusId == id ? _label : ""}
