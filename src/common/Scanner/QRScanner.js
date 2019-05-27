@@ -8,10 +8,17 @@
 "use strict";
 
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Dimensions } from "react-native";
+import {
+    Text,
+    View,
+    StyleSheet,
+    Dimensions,
+    KeyboardAvoidingView,
+    ScrollView
+} from "react-native";
 import { Constants, Permissions, BarCodeScanner } from "expo";
 
-import { Input, Button } from "react-native-elements";
+import { InputField, Button } from "../../common";
 
 const { height, width } = Dimensions.get("window");
 
@@ -19,7 +26,8 @@ export default class BarcodeScanner extends React.Component {
     state = {
         hasCameraPermission: null,
         scanned: false,
-        code: ""
+        code: "",
+        focusId: ""
     };
 
     async componentDidMount() {
@@ -28,127 +36,132 @@ export default class BarcodeScanner extends React.Component {
     }
 
     render() {
-        const { hasCameraPermission, scanned } = this.state;
+        const { hasCameraPermission, scanned, focusId } = this.state;
 
         return (
-            <View style={{ flex: 1 }}>
-                <View
-                    style={{
-                        height: height * 0.6,
-                        width: width
-                    }}
-                >
-                    {hasCameraPermission === null ? (
-                        <Text>Requesting for camera permission</Text>
-                    ) : hasCameraPermission === false ? (
-                        <Text>No access to camera</Text>
-                    ) : (
-                        <BarCodeScanner
-                            onBarCodeScanned={
-                                scanned ? undefined : this.handleBarCodeScanned
-                            }
-                            style={{
-                                justifyContent: "center",
-                                alignItems: "center",
-                                flex: 1
-                            }}
-                        >
-                            <View
-                                style={{
-                                    backgroundColor: "transparent",
-                                    height: 200,
-                                    width: 200,
-                                    borderWidth: 1,
-                                    borderRadius: 1,
-                                    borderStyle: "dashed",
-                                    flexDirection: "row",
-                                    borderColor: "#FFF"
-                                }}
-                            />
-
-                            {scanned && (
-                                <Button
-                                    title={"Tap to Scan Again"}
-                                    onPress={() =>
-                                        this.setState({
-                                            scanned: false,
-                                            code: ""
-                                        })
-                                    }
-                                />
-                            )}
-                        </BarCodeScanner>
-                    )}
-                </View>
-
-                <View
-                    style={{
-                        paddingHorizontal: 20,
-                        backgroundColor: "#FFF"
-                        // position: "absolute",
-                        // bottom: 0,
-                        // left: 0,
-                        // right: 0,
-                        // width: width,
-                        // height: height * 0.4
-                    }}
-                >
+            <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+                <ScrollView>
                     <View
                         style={{
-                            marginVertical: 10,
-                            justifyContent: "center",
-                            alignItems: "center"
+                            height: height * 0.6,
+                            width: width
                         }}
                     >
-                        <Text style={{ fontWeight: "900", color: "#ed4c14" }}>
-                            OR
-                        </Text>
+                        {hasCameraPermission === null ? (
+                            <Text>Requesting for camera permission</Text>
+                        ) : hasCameraPermission === false ? (
+                            <Text>No access to camera</Text>
+                        ) : (
+                            <BarCodeScanner
+                                onBarCodeScanned={
+                                    scanned
+                                        ? undefined
+                                        : this.handleBarCodeScanned
+                                }
+                                style={{
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flex: 1
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        height: 200,
+                                        width: 200,
+                                        borderWidth: 1,
+                                        borderRadius: 1,
+                                        borderStyle: "dashed",
+                                        flexDirection: "row",
+                                        borderColor: "#FFF"
+                                    }}
+                                />
+
+                                {scanned && (
+                                    <Button
+                                        title={"Tap to Scan Again"}
+                                        onPress={() =>
+                                            this.setState({
+                                                scanned: false,
+                                                code: ""
+                                            })
+                                        }
+                                    />
+                                )}
+                            </BarCodeScanner>
+                        )}
                     </View>
-                    <View style={{ marginVertical: 10 }}>
-                        <Input
-                            placeholder="Code"
-                            label="Enter Offer Code"
-                            labelStyle={{
-                                fontWeight: "400",
-                                fontSize: 8,
-                                backgroundColor: "#FFF",
-                                position: "absolute",
-                                top: -15,
-                                left: 10,
-                                padding: 5
+
+                    <View
+                        style={{
+                            paddingHorizontal: 20,
+                            backgroundColor: "#FFF"
+                            // position: "absolute",
+                            // bottom: 0,
+                            // left: 0,
+                            // right: 0,
+                            // width: width,
+                            // height: height * 0.4
+                        }}
+                    >
+                        <View
+                            style={{
+                                marginVertical: 10,
+                                justifyContent: "center",
+                                alignItems: "center"
                             }}
-                            containerStyle={{
-                                borderWidth: 1,
-                                borderRadius: 6,
-                                borderColor: "#EDEDED"
+                        >
+                            <Text
+                                style={{
+                                    fontSize: 10,
+                                    color: "#ed4c14",
+                                    fontFamily: "Poppins-Bold"
+                                }}
+                            >
+                                OR
+                            </Text>
+                        </View>
+                        <View style={{}}>
+                            <InputField
+                                placeholder="Code"
+                                label="Enter Offer Code"
+                                id="code"
+                                focusId={focusId}
+                                onFocus={this._onFocusAnimation}
+                                onBlur={this._onBlurAnimation}
+                                errorMessage=""
+                                value={this.state.code}
+                                onChangeText={code => this.setState({ code })}
+                            />
+                        </View>
+                        <View
+                            style={{
+                                marginVertical: 10,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
                             }}
-                            inputContainerStyle={{
-                                borderBottomWidth: 0
-                            }}
-                            inputStyle={{
-                                fontSize: 12
-                            }}
-                            value={this.state.code}
-                            type="password"
-                            // errorStyle={{ color: "red" }}
-                            // errorMessage="ENTER A VALID ERROR HERE"
-                        />
+                        >
+                            <Button
+                                title="Proceed"
+                                onPress={() =>
+                                    this.props.navigation.navigate("Tabs")
+                                }
+                            />
+                        </View>
                     </View>
-                    <View style={{ marginVertical: 10 }}>
-                        <Button
-                            title="Proceed"
-                            type="outline"
-                            buttonStyle={{ borderColor: "#ed4c14" }}
-                            titleStyle={{ color: "#ed4c14" }}
-                            onPress={() =>
-                                this.props.navigation.navigate("Tabs")
-                            }
-                        />
-                    </View>
-                </View>
-            </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
         );
     }
+
+    _onFocusAnimation = focusId => {
+        this.setState({ focusId });
+    };
+
+    _onBlurAnimation = () => {
+        this.setState({ focusId: "" });
+    };
 
     handleBarCodeScanned = ({ type, data }) => {
         this.setState({ scanned: true, code: data });

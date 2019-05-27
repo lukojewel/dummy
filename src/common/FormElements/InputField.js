@@ -37,8 +37,8 @@ const InputField = ({
     label,
     id,
     focusId,
-    onFocus,
-    onBlur,
+    onFocus = () => {},
+    onBlur = () => {},
     errorMessage,
     type = "text",
     ...props
