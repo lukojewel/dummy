@@ -22,7 +22,11 @@ export default class App extends React.Component {
 
     async componentDidMount() {
         await Font.loadAsync({
-            CustomIcon: require("./src/Icons/CustomIcon.ttf")
+            CustomIcon: require("./src/Icons/CustomIcon.ttf"),
+            "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
+            "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
+            "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
+            "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf")
         });
 
         this.setState({

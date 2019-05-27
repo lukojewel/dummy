@@ -77,8 +77,24 @@ export class DetailContainer extends Component {
                         <View
                             style={{ flexDirection: "row", marginVertical: 5 }}
                         >
-                            <Text>{"\u2022"}</Text>
-                            <Text style={{ flex: 1, paddingLeft: 5 }}>
+                            <Text
+                                style={{
+                                    fontFamily: "Poppins-Light",
+                                    fontSize: 10,
+                                    lineHeight: 16.7
+                                }}
+                            >
+                                {"\u2022"}
+                            </Text>
+                            <Text
+                                style={{
+                                    flex: 1,
+                                    paddingLeft: 5,
+                                    fontFamily: "Poppins-Light",
+                                    fontSize: 10,
+                                    lineHeight: 16.7
+                                }}
+                            >
                                 React-native doesn't seem to like my use of
                                 nested flex boxes.
                             </Text>
@@ -250,6 +266,7 @@ const style = StyleSheet.create({
     },
     titleText: {
         paddingBottom: 10,
-        fontWeight: "800"
+        fontSize: 14,
+        fontFamily: "Poppins-Medium"
     }
 });

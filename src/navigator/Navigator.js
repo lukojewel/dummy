@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from "react";
-import { View, Text, Image, Platform } from "react-native";
+import { View, Text, Image, Platform, StyleSheet } from "react-native";
 import {
     createAppContainer,
     createSwitchNavigator,
@@ -92,7 +92,7 @@ const CreateCouponsStack = createStackNavigator(
                         >
                             <CustomIcon
                                 name="lt_back"
-                                size={24}
+                                size={15}
                                 style={{
                                     color: "#000",
                                     fontWeight: "900",
@@ -222,22 +222,26 @@ const TabsStackNavigator = createStackNavigator({
             return {
                 // header: null,
                 headerLeft: (
-                    <CustomIcon
-                        name="lt_back"
-                        size={24}
+                    <View
                         style={{
-                            color: "#000",
-                            fontWeight: "900",
-                            alignItems: "flex-start",
-                            marginLeft: 10,
-                            marginRight: 10
+                            flex: 1,
+                            justifyContent: "flex-start",
+                            flexDirection: "row",
+                            paddingLeft: 10,
+                            paddingTop: 9
                         }}
-                        onPress={() => {
-                            navigation.pop();
-                        }}
-                    />
-                ),
-                headerTitle: "Scan QR code"
+                    >
+                        <CustomIcon
+                            name="lt_back"
+                            size={15}
+                            style={[styles.headerIcon, { color: "#000" }]}
+                            onPress={() => navigation.pop()}
+                        />
+                        <Text style={[styles.title, { color: "#000" }]}>
+                            Scan QR code
+                        </Text>
+                    </View>
+                )
             };
         }
     },
@@ -308,3 +312,19 @@ const AppSwitchNavigator = createSwitchNavigator({
 });
 
 export default createAppContainer(AppSwitchNavigator);
+
+const styles = StyleSheet.create({
+    title: {
+        color: "#fff",
+        fontWeight: "900",
+        fontSize: 14,
+        marginTop: -2,
+        fontFamily: "Poppins-SemiBold"
+    },
+    headerIcon: {
+        color: "#fff",
+        fontWeight: "900",
+        alignItems: "flex-start",
+        marginRight: 15
+    }
+});

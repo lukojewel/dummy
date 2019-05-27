@@ -6,182 +6,297 @@
  * @desc [description]
  */
 import React, { Component } from "react";
-import { Text, ScrollView, View, Image, StyleSheet } from "react-native";
+import {
+    Text,
+    ScrollView,
+    View,
+    Image,
+    StyleSheet,
+    KeyboardAvoidingView
+} from "react-native";
 import { Input, Button } from "react-native-elements";
 
 export class NewCoupon extends Component {
+    state = {
+        focusId: ""
+    };
     render() {
+        const { focusId } = this.state;
+        let labelStyle = {
+            fontWeight: "400",
+            fontSize: 12,
+            backgroundColor: "#FFF",
+            position: "absolute",
+            top: -15,
+            left: 10,
+            padding: 5
+        };
+
+        let initialLabelStyle = {
+            position: "absolute",
+            top: -15,
+            left: 10,
+            padding: 5
+        };
         return (
-            <ScrollView contentContainerStyle={style.contentContainer}>
-                <View style={style.container}>
-                    <View style={style.formContainer}>
-                        <View style={style.section}>
-                            <View style={style.imageUpload}>
-                                <View style={{}}>
-                                    <Image style={{ height: 50, width: 50 }} />
+            <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+                <ScrollView contentContainerStyle={style.contentContainer}>
+                    <View style={style.container}>
+                        <View style={style.formContainer}>
+                            <View style={style.section}>
+                                <View style={style.imageUpload}>
+                                    <View style={{}}>
+                                        <Image
+                                            style={{ height: 50, width: 50 }}
+                                        />
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            padding: 10
+                                        }}
+                                    >
+                                        <Text>
+                                            Click here to upload a cover image
+                                            for your offer
+                                        </Text>
+                                    </View>
                                 </View>
+                            </View>
+                            <View style={style.section}>
+                                <Input
+                                    placeholder="Heading"
+                                    label={
+                                        focusId == "heading"
+                                            ? "Coupon Heading"
+                                            : ""
+                                    }
+                                    labelStyle={
+                                        focusId == "heading"
+                                            ? labelStyle
+                                            : initialLabelStyle
+                                    }
+                                    onFocus={() =>
+                                        this._onFocusAnimation("heading")
+                                    }
+                                    onBlur={this._onBlurAnimation}
+                                    containerStyle={{
+                                        borderWidth: 1,
+                                        borderRadius: 6,
+                                        borderColor: "#EDEDED"
+                                    }}
+                                    inputContainerStyle={{
+                                        borderBottomWidth: 0
+                                    }}
+                                    inputStyle={{
+                                        fontSize: 14
+                                    }}
+                                    // errorStyle={{ color: "red" }}
+                                    // errorMessage="ENTER A VALID ERROR HERE"
+                                />
+                            </View>
+                            <View style={style.section}>
+                                <Input
+                                    placeholder="Discount in %"
+                                    label={
+                                        focusId == "discount"
+                                            ? "Discount in %"
+                                            : ""
+                                    }
+                                    labelStyle={
+                                        focusId == "discount"
+                                            ? labelStyle
+                                            : initialLabelStyle
+                                    }
+                                    onFocus={() =>
+                                        this._onFocusAnimation("discount")
+                                    }
+                                    onBlur={this._onBlurAnimation}
+                                    containerStyle={{
+                                        borderWidth: 1,
+                                        borderRadius: 6,
+                                        borderColor: "#EDEDED"
+                                    }}
+                                    inputContainerStyle={{
+                                        borderBottomWidth: 0
+                                    }}
+                                    inputStyle={{
+                                        fontSize: 14
+                                    }}
+                                    // errorStyle={{ color: "red" }}
+                                    // errorMessage="ENTER A VALID ERROR HERE"
+                                />
+                            </View>
+                            <View style={style.section}>
+                                <Input
+                                    placeholder="Maximum coupon count"
+                                    label={
+                                        focusId == "count"
+                                            ? "Maximum coupon count"
+                                            : ""
+                                    }
+                                    labelStyle={
+                                        focusId == "count"
+                                            ? labelStyle
+                                            : initialLabelStyle
+                                    }
+                                    onFocus={() =>
+                                        this._onFocusAnimation("count")
+                                    }
+                                    onBlur={this._onBlurAnimation}
+                                    containerStyle={{
+                                        borderWidth: 1,
+                                        borderRadius: 6,
+                                        borderColor: "#EDEDED"
+                                    }}
+                                    inputContainerStyle={{
+                                        borderBottomWidth: 0
+                                    }}
+                                    inputStyle={{
+                                        fontSize: 14
+                                    }}
+                                    // errorStyle={{ color: "red" }}
+                                    // errorMessage="ENTER A VALID ERROR HERE"
+                                />
+                            </View>
+                            <View style={style.section}>
                                 <View
                                     style={{
                                         flex: 1,
-                                        padding: 10
+                                        flexDirection: "row",
+                                        justifyContent: "space-between"
                                     }}
                                 >
-                                    <Text>
-                                        Click here to upload a cover image for
-                                        your offer
-                                    </Text>
+                                    <View style={{ flex: 1, marginRight: 20 }}>
+                                        <Input
+                                            placeholder="Start date"
+                                            label={
+                                                focusId == "start-date"
+                                                    ? "Start date"
+                                                    : ""
+                                            }
+                                            labelStyle={
+                                                focusId == "start-date"
+                                                    ? labelStyle
+                                                    : initialLabelStyle
+                                            }
+                                            onFocus={() =>
+                                                this._onFocusAnimation(
+                                                    "start-date"
+                                                )
+                                            }
+                                            onBlur={this._onBlurAnimation}
+                                            containerStyle={{
+                                                borderWidth: 1,
+                                                borderRadius: 6,
+                                                borderColor: "#EDEDED"
+                                            }}
+                                            inputContainerStyle={{
+                                                borderBottomWidth: 0
+                                            }}
+                                            inputStyle={{
+                                                fontSize: 14
+                                            }}
+                                            // errorStyle={{ color: "red" }}
+                                            // errorMessage="ENTER A VALID ERROR HERE"
+                                        />
+                                    </View>
+                                    <View style={{ flex: 1, marginLeft: 20 }}>
+                                        <Input
+                                            placeholder="End date"
+                                            label={
+                                                focusId == "end-date"
+                                                    ? "End date"
+                                                    : ""
+                                            }
+                                            labelStyle={
+                                                focusId == "end-date"
+                                                    ? labelStyle
+                                                    : initialLabelStyle
+                                            }
+                                            onFocus={() =>
+                                                this._onFocusAnimation(
+                                                    "end-date"
+                                                )
+                                            }
+                                            onBlur={this._onBlurAnimation}
+                                            containerStyle={{
+                                                borderWidth: 1,
+                                                borderRadius: 6,
+                                                borderColor: "#EDEDED"
+                                            }}
+                                            inputContainerStyle={{
+                                                borderBottomWidth: 0
+                                            }}
+                                            inputStyle={{
+                                                fontSize: 14
+                                            }}
+                                            // errorStyle={{ color: "red" }}
+                                            // errorMessage="ENTER A VALID ERROR HERE"
+                                        />
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                        <View style={style.section}>
-                            <Input
-                                placeholder="Heading"
-                                label="Coupon Heading"
-                                labelStyle={{
-                                    fontWeight: "400",
-                                    fontSize: 12,
-                                    backgroundColor: "#FFF",
-                                    position: "absolute",
-                                    top: -15,
-                                    left: 10,
-                                    padding: 5
-                                }}
-                                containerStyle={{
-                                    borderWidth: 1,
-                                    borderRadius: 6,
-                                    borderColor: "#EDEDED"
-                                }}
-                                inputContainerStyle={{
-                                    borderBottomWidth: 0
-                                }}
-                                inputStyle={{
-                                    fontSize: 14
-                                }}
-                                // errorStyle={{ color: "red" }}
-                                // errorMessage="ENTER A VALID ERROR HERE"
-                            />
-                        </View>
-                        <View style={style.section}>
-                            <Input
-                                placeholder="Discount in %"
-                                containerStyle={{
-                                    borderWidth: 1,
-                                    borderRadius: 6,
-                                    borderColor: "#EDEDED"
-                                }}
-                                inputContainerStyle={{
-                                    borderBottomWidth: 0
-                                }}
-                                inputStyle={{
-                                    fontSize: 14
-                                }}
-                                // errorStyle={{ color: "red" }}
-                                // errorMessage="ENTER A VALID ERROR HERE"
-                            />
-                        </View>
-                        <View style={style.section}>
-                            <Input
-                                placeholder="Maximum coupon count"
-                                containerStyle={{
-                                    borderWidth: 1,
-                                    borderRadius: 6,
-                                    borderColor: "#EDEDED"
-                                }}
-                                inputContainerStyle={{
-                                    borderBottomWidth: 0
-                                }}
-                                inputStyle={{
-                                    fontSize: 14
-                                }}
-                                // errorStyle={{ color: "red" }}
-                                // errorMessage="ENTER A VALID ERROR HERE"
-                            />
-                        </View>
-                        <View style={style.section}>
-                            <View
-                                style={{
-                                    flex: 1,
-                                    flexDirection: "row",
-                                    justifyContent: "space-between"
-                                }}
-                            >
-                                <View style={{ flex: 1, marginRight: 20 }}>
-                                    <Input
-                                        placeholder="Start date"
-                                        containerStyle={{
-                                            borderWidth: 1,
-                                            borderRadius: 6,
-                                            borderColor: "#EDEDED"
-                                        }}
-                                        inputContainerStyle={{
-                                            borderBottomWidth: 0
-                                        }}
-                                        inputStyle={{
-                                            fontSize: 14
-                                        }}
-                                        // errorStyle={{ color: "red" }}
-                                        // errorMessage="ENTER A VALID ERROR HERE"
-                                    />
-                                </View>
-                                <View style={{ flex: 1, marginLeft: 20 }}>
-                                    <Input
-                                        placeholder="End date"
-                                        containerStyle={{
-                                            borderWidth: 1,
-                                            borderRadius: 6,
-                                            borderColor: "#EDEDED"
-                                        }}
-                                        inputContainerStyle={{
-                                            borderBottomWidth: 0
-                                        }}
-                                        inputStyle={{
-                                            fontSize: 14
-                                        }}
-                                        // errorStyle={{ color: "red" }}
-                                        // errorMessage="ENTER A VALID ERROR HERE"
-                                    />
-                                </View>
+                            <View style={style.section}>
+                                <Input
+                                    placeholder="Offer notes"
+                                    label={
+                                        focusId == "notes" ? "Offer notes" : ""
+                                    }
+                                    labelStyle={
+                                        focusId == "notes"
+                                            ? labelStyle
+                                            : initialLabelStyle
+                                    }
+                                    onFocus={() =>
+                                        this._onFocusAnimation("notes")
+                                    }
+                                    onBlur={this._onBlurAnimation}
+                                    containerStyle={{
+                                        borderWidth: 1,
+                                        borderRadius: 6,
+                                        borderColor: "#EDEDED"
+                                    }}
+                                    inputContainerStyle={{
+                                        borderBottomWidth: 0,
+                                        justifyContent: "flex-start"
+                                    }}
+                                    inputStyle={{
+                                        fontSize: 14
+                                    }}
+                                    multiline={true}
+                                    numberOfLines={10}
+                                    // errorStyle={{ color: "red" }}
+                                    // errorMessage="ENTER A VALID ERROR HERE"
+                                />
                             </View>
                         </View>
-                        <View style={style.section}>
-                            <Input
-                                placeholder="Offer notes"
-                                containerStyle={{
-                                    borderWidth: 1,
-                                    borderRadius: 6,
-                                    borderColor: "#EDEDED"
-                                }}
-                                inputContainerStyle={{
-                                    borderBottomWidth: 0,
-                                    justifyContent: "flex-start"
-                                }}
-                                inputStyle={{
-                                    fontSize: 14
-                                }}
-                                multiline={true}
-                                numberOfLines={10}
-                                // errorStyle={{ color: "red" }}
-                                // errorMessage="ENTER A VALID ERROR HERE"
+                        <View style={{ flexDirection: "row" }}>
+                            <Button
+                                title="Cancel"
+                                type="clear"
+                                titleStyle={{ color: "#333" }}
+                            />
+                            <Button
+                                title="Create & Publish"
+                                type="outline"
+                                buttonStyle={{ borderColor: "tomato" }}
+                                titleStyle={{ color: "tomato" }}
                             />
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row" }}>
-                        <Button
-                            title="Cancel"
-                            type="clear"
-                            titleStyle={{ color: "#333" }}
-                        />
-                        <Button
-                            title="Create & Publish"
-                            type="outline"
-                            buttonStyle={{ borderColor: "tomato" }}
-                            titleStyle={{ color: "tomato" }}
-                        />
-                    </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </KeyboardAvoidingView>
         );
     }
+
+    _onFocusAnimation = focusId => {
+        this.setState({ focusId });
+    };
+
+    _onBlurAnimation = () => {
+        this.setState({ focusId: "" });
+    };
 }
 
 export default NewCoupon;

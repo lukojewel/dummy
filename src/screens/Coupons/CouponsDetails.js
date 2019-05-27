@@ -71,6 +71,11 @@ export default class CouponsDetails extends Component {
             outputRange: [1, 1, 0],
             extrapolate: "clamp"
         });
+        const titleOpacity = scrollY.interpolate({
+            inputRange: [0, HEADER_SCROLL_DISTANCE / 2, HEADER_SCROLL_DISTANCE],
+            outputRange: [0, 1, 1],
+            extrapolate: "clamp"
+        });
         const imageTranslate = scrollY.interpolate({
             inputRange: [0, HEADER_SCROLL_DISTANCE],
             outputRange: [0, 100],
@@ -154,6 +159,7 @@ export default class CouponsDetails extends Component {
                     style={[
                         styles.bar,
                         {
+                            opacity: titleOpacity,
                             transform: [
                                 { scale: titleScale },
                                 { translateY: titleTranslate }
@@ -172,19 +178,106 @@ export default class CouponsDetails extends Component {
                             style={{
                                 flex: 1,
                                 justifyContent: "flex-start",
+                                flexDirection: "row",
                                 paddingLeft: 10,
-                                paddingTop: 5
+                                paddingTop: 9
                             }}
                         >
                             <CustomIcon
                                 name="lt_back"
-                                size={24}
+                                size={15}
+                                style={[styles.headerIcon, { color: "#000" }]}
+                                onPress={() => this.props.navigation.pop()}
+                            />
+                        </View>
+                        <View style={{ flex: 3, justifyContent: "center" }}>
+                            <Text style={[styles.title, { color: "#000" }]}>
+                                Coupon Details
+                            </Text>
+                        </View>
+                        <View
+                            style={{
+                                flex: 1,
+                                justifyContent: "flex-end",
+                                flexDirection: "row",
+                                paddingLeft: 10,
+                                paddingTop: 8
+                            }}
+                        >
+                            <CustomIcon
+                                name="lt_edit"
+                                size={16}
+                                style={[styles.headerIcon, { color: "#000" }]}
+                                onPress={() => this.props.navigation.pop()}
+                            />
+                            <CustomIcon
+                                name="lt_qr_code_2"
+                                size={16}
+                                style={[styles.headerIcon, { color: "#000" }]}
+                                onPress={() => this.props.navigation.pop()}
+                            />
+                        </View>
+                    </View>
+                </Animated.View>
+                <Animated.View
+                    style={[
+                        styles.bar,
+                        {
+                            opacity: imageOpacity,
+                            transform: [
+                                { scale: titleScale },
+                                { translateY: titleTranslate }
+                            ]
+                        }
+                    ]}
+                >
+                    <View
+                        style={{
+                            flex: 1,
+                            flexDirection: "row",
+                            justifyContent: "center"
+                        }}
+                    >
+                        <View
+                            style={{
+                                flex: 1,
+                                justifyContent: "flex-start",
+                                flexDirection: "row",
+                                paddingLeft: 10,
+                                paddingTop: 9
+                            }}
+                        >
+                            <CustomIcon
+                                name="lt_back"
+                                size={15}
                                 style={styles.headerIcon}
                                 onPress={() => this.props.navigation.pop()}
                             />
                         </View>
                         <View style={{ flex: 3, justifyContent: "center" }}>
                             <Text style={styles.title}>Coupon Details</Text>
+                        </View>
+                        <View
+                            style={{
+                                flex: 1,
+                                justifyContent: "flex-end",
+                                flexDirection: "row",
+                                paddingLeft: 10,
+                                paddingTop: 8
+                            }}
+                        >
+                            <CustomIcon
+                                name="lt_edit"
+                                size={16}
+                                style={styles.headerIcon}
+                                onPress={() => this.props.navigation.pop()}
+                            />
+                            <CustomIcon
+                                name="lt_qr_code_2"
+                                size={16}
+                                style={styles.headerIcon}
+                                onPress={() => this.props.navigation.pop()}
+                            />
                         </View>
                     </View>
                 </Animated.View>
@@ -231,13 +324,17 @@ const styles = StyleSheet.create({
         right: 0
     },
     title: {
-        // color: "white",
-        fontSize: 18
+        color: "#fff",
+        fontWeight: "900",
+        fontSize: 14,
+        marginTop: -2,
+        fontFamily: "Poppins-SemiBold"
     },
     headerIcon: {
-        color: "#000",
+        color: "#fff",
         fontWeight: "900",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+        marginRight: 15
     },
     scrollViewContent: {
         // iOS uses content inset, which acts like padding.
