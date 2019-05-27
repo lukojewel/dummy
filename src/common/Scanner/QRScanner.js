@@ -18,7 +18,8 @@ import {
 } from "react-native";
 import { Constants, Permissions, BarCodeScanner } from "expo";
 
-import { InputField, Button } from "../../common";
+import Button from "../Button/Button";
+import InputField from "../FormElements/InputField";
 
 const { height, width } = Dimensions.get("window");
 

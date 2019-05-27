@@ -192,7 +192,7 @@ export default class ClaimDetails extends Component {
                         </View>
                         <View style={{ flex: 3, justifyContent: "center" }}>
                             <Text style={[styles.title, { color: "#000" }]}>
-                                Claim Details
+                                Cafe Coffee Day
                             </Text>
                         </View>
                         <View
@@ -207,13 +207,19 @@ export default class ClaimDetails extends Component {
                             <CustomIcon
                                 name="lt_edit"
                                 size={16}
-                                style={[styles.headerIcon, { color: "#000" }]}
+                                style={[
+                                    styles.headerIcon,
+                                    { color: "#000", marginHorizontal: 10 }
+                                ]}
                                 onPress={() => this.props.navigation.pop()}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
                                 size={16}
-                                style={[styles.headerIcon, { color: "#000" }]}
+                                style={[
+                                    styles.headerIcon,
+                                    { color: "#000", marginHorizontal: 10 }
+                                ]}
                                 onPress={() => this.props.navigation.pop()}
                             />
                         </View>
@@ -256,7 +262,7 @@ export default class ClaimDetails extends Component {
                             />
                         </View>
                         <View style={{ flex: 3, justifyContent: "center" }}>
-                            <Text style={styles.title}>Claim Details</Text>
+                            <Text style={styles.title}>Cafe Coffee Day</Text>
                         </View>
                         <View
                             style={{
@@ -270,13 +276,19 @@ export default class ClaimDetails extends Component {
                             <CustomIcon
                                 name="lt_edit"
                                 size={16}
-                                style={styles.headerIcon}
+                                style={[
+                                    styles.headerIcon,
+                                    { marginHorizontal: 10 }
+                                ]}
                                 onPress={() => this.props.navigation.pop()}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
                                 size={16}
-                                style={styles.headerIcon}
+                                style={[
+                                    styles.headerIcon,
+                                    { marginHorizontal: 10 }
+                                ]}
                                 onPress={() => this.props.navigation.pop()}
                             />
                         </View>
@@ -326,16 +338,14 @@ const styles = StyleSheet.create({
     },
     title: {
         color: "#fff",
-        fontWeight: "900",
         fontSize: 14,
-        marginTop: -2,
+        lineHeight: 16,
+        marginBottom: -4,
         fontFamily: "Poppins-SemiBold"
     },
     headerIcon: {
         color: "#fff",
-        fontWeight: "900",
-        alignItems: "flex-start",
-        marginRight: 15
+        marginHorizontal: 20
     },
     scrollViewContent: {
         // iOS uses content inset, which acts like padding.

@@ -9,7 +9,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Image, Dimensions } from "react-native";
 
-import { Logo } from "../../common";
+import Logo from "../Image/Logo";
 const { height, width } = Dimensions.get("window");
 
 export class DetailContainer extends Component {
