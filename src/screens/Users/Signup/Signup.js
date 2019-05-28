@@ -84,7 +84,7 @@ export class Signup extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     focusId={focusId}
-                                    type="email"
+                                    type="email-address"
                                     // errorMessage=""
                                 />
                                 <InputField
@@ -109,6 +109,7 @@ export class Signup extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     focusId={focusId}
+                                    type="phone-pad"
                                     // errorMessage=""
                                 />
                                 <InputField
@@ -117,14 +118,7 @@ export class Signup extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     focusId={focusId}
-                                    // errorMessage=""
-                                />
-                                <InputField
-                                    placeholder="Password"
-                                    id="password"
-                                    onFocus={this._onFocusAnimation}
-                                    onBlur={this._onBlurAnimation}
-                                    focusId={focusId}
+                                    secureTextEntry
                                     // errorMessage=""
                                 />
                             </View>

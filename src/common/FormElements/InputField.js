@@ -43,7 +43,7 @@ const InputField = ({
     onFocus = () => {},
     onBlur = () => {},
     errorMessage,
-    type = "text",
+    type = "default",
     ...props
 }) => {
     let _label = label || placeholder;
@@ -73,7 +73,7 @@ const InputField = ({
                 onBlur={() => onBlur()}
                 errorStyle={{ color: "red" }}
                 errorMessage={errorMessage}
-                type={type}
+                keyboardType={type}
                 {...props}
             />
         </View>

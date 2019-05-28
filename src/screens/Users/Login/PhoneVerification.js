@@ -26,7 +26,7 @@ export class PhoneVerification extends Component {
                             onFocus={this._onFocusAnimation}
                             onBlur={this._onBlurAnimation}
                             focusId={focusId}
-                            type="number"
+                            type="phone-pad"
                             // errorMessage=""
                         />
                         <View style={{ flexDirection: "row", marginTop: 10 }}>

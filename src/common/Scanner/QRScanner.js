@@ -131,6 +131,7 @@ export default class BarcodeScanner extends React.Component {
                                 onBlur={this._onBlurAnimation}
                                 errorMessage=""
                                 value={this.state.code}
+                                type="visible-password"
                                 onChangeText={code => this.setState({ code })}
                             />
                         </View>

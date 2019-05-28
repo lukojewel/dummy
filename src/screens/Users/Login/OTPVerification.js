@@ -33,7 +33,7 @@ export class OTPVerification extends Component {
                             onFocus={this._onFocusAnimation}
                             onBlur={this._onBlurAnimation}
                             focusId={focusId}
-                            type="password"
+                            type="visible-password"
                             // errorMessage=""
                         />
                         <View style={{ flexDirection: "row", marginTop: 10 }}>

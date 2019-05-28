@@ -159,6 +159,7 @@ export class ShopDetails extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     focusId={focusId}
+                                    type="numeric"
                                     // errorMessage=""
                                 />
 
@@ -168,6 +169,7 @@ export class ShopDetails extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     focusId={focusId}
+                                    type="visible-password"
                                     // errorMessage=""
                                 />
                             </View>

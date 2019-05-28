@@ -84,6 +84,7 @@ export class Login extends Component {
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     errorMessage=""
+                                    type="email-address"
                                 />
                                 <InputField
                                     placeholder="Password"

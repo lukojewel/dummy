@@ -227,7 +227,6 @@ export class LocationDetails extends Component {
                                     placeholder="Location"
                                     id="location"
                                     focusId={focusId}
-                                    type="password"
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
                                     value={address.name}
