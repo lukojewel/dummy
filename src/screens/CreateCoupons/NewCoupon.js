@@ -163,7 +163,7 @@ const style = StyleSheet.create({
         paddingVertical: 5,
         marginBottom: 20
     },
-    container: { flex: 1, padding: 10 },
+    container: { flex: 1, paddingHorizontal: 20, paddingVertical: 10 },
     formContainer: {
         marginVertical: 10
     },

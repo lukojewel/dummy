@@ -41,6 +41,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -64,6 +65,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -87,6 +89,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -110,6 +113,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -133,6 +137,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -156,6 +161,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -179,6 +185,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
@@ -202,6 +209,7 @@ export class Profile extends Component {
                             labelStyle={{
                                 fontSize: 8,
                                 fontFamily: "Poppins-SemiBold",
+                                fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{

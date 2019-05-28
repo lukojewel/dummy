@@ -41,13 +41,14 @@ export default class CouponsDetails extends Component {
         const data = Array.from({ length: 30 });
         return (
             <View style={styles.scrollViewContent}>
-                <View>
+                <View
+                    style={{
+                        borderTopEndRadius: 20,
+                        borderTopStartRadius: 20,
+                        backgroundColor: "#fff"
+                    }}
+                >
                     <DetailContainer />
-                    {/* {data.map((_, i) => (
-                        <View key={i} style={styles.row}>
-                            <Text>{i}</Text>
-                        </View>
-                    ))} */}
                 </View>
             </View>
         );
@@ -355,7 +356,8 @@ const styles = StyleSheet.create({
     },
     scrollViewContent: {
         // iOS uses content inset, which acts like padding.
-        paddingTop: Platform.OS !== "ios" ? HEADER_MAX_HEIGHT : 0
+        paddingTop: Platform.OS !== "ios" ? HEADER_MAX_HEIGHT : 0,
+        backgroundColor: "#000"
     },
     row: {
         height: 40,

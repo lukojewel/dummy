@@ -181,14 +181,16 @@ export class index extends Component {
                                     <View
                                         style={{
                                             flex: 1,
-                                            flexDirection: "row"
+                                            flexDirection: "row",
+                                            height: 84
                                         }}
                                     >
                                         <View
                                             style={{
                                                 flex: 2,
                                                 width: 84,
-                                                height: 84
+                                                height: 84,
+                                                overflow: "hidden"
                                             }}
                                         >
                                             <Image
@@ -204,8 +206,7 @@ export class index extends Component {
                                             style={{
                                                 flex: 5,
                                                 alignItems: "flex-start",
-                                                justifyContent: "center",
-                                                marginHorizontal: 4
+                                                justifyContent: "center"
                                             }}
                                         >
                                             <Text

@@ -30,15 +30,19 @@ export class ShopDetails extends Component {
                     <View style={{ flex: 1, backgroundColor: "#FFF" }}>
                         <View
                             style={{
-                                // flex: 1,
+                                flex: 1,
                                 flexDirection: "row",
-                                justifyContent: "space-between"
+                                justifyContent: "center",
+                                margin: 20
                             }}
                         >
                             <View
                                 style={{
-                                    flex: 1,
-                                    margin: 20
+                                    // flex: 1,
+                                    position: "absolute",
+                                    left: 0,
+                                    top: 0,
+                                    alignSelf: "flex-start"
                                 }}
                             >
                                 <Image
@@ -58,7 +62,7 @@ export class ShopDetails extends Component {
                             </View>
                             <View
                                 style={{
-                                    flex: 1,
+                                    paddingTop: 90,
                                     justifyContent: "center",
                                     alignContent: "center"
                                 }}
@@ -68,6 +72,7 @@ export class ShopDetails extends Component {
                                         width: 70,
                                         height: 70,
                                         borderRadius: 100,
+                                        zIndex: 100,
                                         padding: 3,
                                         borderWidth: 1,
                                         borderStyle: "dashed",

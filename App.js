@@ -27,7 +27,8 @@ export default class App extends React.Component {
             "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
             "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
             "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
-            "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf")
+            "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
+            "Poppins-ThinItalic": require("./assets/fonts/Poppins-ThinItalic.ttf")
         });
 
         this.setState({
