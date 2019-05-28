@@ -34,7 +34,8 @@ export class index extends Component {
         return (
             <View
                 style={{
-                    padding: 10,
+                    paddingHorizontal: 20,
+                    paddingVertical: 10,
                     flex: 1
                 }}
             >

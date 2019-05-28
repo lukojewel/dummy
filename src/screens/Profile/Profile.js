@@ -40,7 +40,8 @@ export class Profile extends Component {
                             label="Email"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -62,7 +63,8 @@ export class Profile extends Component {
                             label="Phone"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -84,7 +86,8 @@ export class Profile extends Component {
                             label="GST Number"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -106,7 +109,8 @@ export class Profile extends Component {
                             label="Contact Person"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -128,7 +132,8 @@ export class Profile extends Component {
                             label="State"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -150,7 +155,8 @@ export class Profile extends Component {
                             label="City"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -172,7 +178,8 @@ export class Profile extends Component {
                             label="Address"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
@@ -194,7 +201,8 @@ export class Profile extends Component {
                             label="Pincode"
                             labelStyle={{
                                 fontSize: 8,
-                                fontFamily: "Poppins-Light"
+                                fontFamily: "Poppins-SemiBold",
+                                color: "#8b8b8b"
                             }}
                             inputStyle={{
                                 fontSize: 12,
