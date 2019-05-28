@@ -11,8 +11,8 @@ import { Input } from "react-native-elements";
 
 let labelStyle = {
     fontFamily: "Poppins-SemiBold",
-    fontSize: 40,
-    color: "red"
+    fontSize: 8,
+    color: "#8b8b8b"
 };
 
 let activeLabelStyle = {
