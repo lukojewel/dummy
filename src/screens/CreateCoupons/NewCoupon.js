@@ -13,7 +13,8 @@ import {
     Image,
     StyleSheet,
     KeyboardAvoidingView,
-    TouchableOpacity
+    TouchableOpacity,
+    Keyboard
 } from "react-native";
 import moment from "moment";
 
@@ -38,7 +39,6 @@ export class NewCoupon extends Component {
     };
 
     handleDatePicked = date => {
-        console.log("A date has been picked: ", date);
         let _date = "";
         if (date) {
             _date = moment(date).format("YYYY-MM-DD");
@@ -48,6 +48,7 @@ export class NewCoupon extends Component {
         } else if (this.state.focusId == "end-date") {
             this.setState({ endDate: _date });
         }
+        Keyboard.dismiss();
         this.hideDateTimePicker();
     };
 
@@ -125,7 +126,7 @@ export class NewCoupon extends Component {
                                         onBlur={this._onBlurAnimation}
                                         focusId={focusId}
                                         value={this.state.startDate}
-                                        keyboardType="none"
+                                        // keyboardType="none"
                                         // errorMessage=""
                                     />
                                     <View style={{ paddingHorizontal: 5 }} />
@@ -136,7 +137,7 @@ export class NewCoupon extends Component {
                                         onBlur={this._onBlurAnimation}
                                         focusId={focusId}
                                         value={this.state.endDate}
-                                        keyboardType="none"
+                                        // keyboardType="none"
                                         // errorMessage=""
                                     />
                                 </View>
