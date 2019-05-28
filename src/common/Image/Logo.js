@@ -20,6 +20,7 @@ const Logo = props => {
                 height: 40,
                 width: 40,
                 padding: 3,
+                backgroundColor: "#EDEDED",
                 marginHorizontal: 20,
                 marginVertical: 9,
                 borderRadius: 40,

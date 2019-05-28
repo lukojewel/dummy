@@ -41,7 +41,13 @@ export default class ClaimDetails extends Component {
         const data = Array.from({ length: 30 });
         return (
             <View style={styles.scrollViewContent}>
-                <View>
+                <View
+                    style={{
+                        borderTopEndRadius: 20,
+                        borderTopStartRadius: 20,
+                        backgroundColor: "#fff"
+                    }}
+                >
                     <DetailContainer />
                     {/* {data.map((_, i) => (
                         <View key={i} style={styles.row}>
@@ -177,10 +183,8 @@ export default class ClaimDetails extends Component {
                         <View
                             style={{
                                 flex: 1,
-                                justifyContent: "flex-start",
-                                flexDirection: "row",
-                                paddingLeft: 10,
-                                paddingTop: 9
+                                justifyContent: "center",
+                                flexDirection: "row"
                             }}
                         >
                             <CustomIcon
@@ -190,37 +194,31 @@ export default class ClaimDetails extends Component {
                                 onPress={() => this.props.navigation.pop()}
                             />
                         </View>
-                        <View style={{ flex: 3, justifyContent: "center" }}>
+                        <View style={{ justifyContent: "center" }}>
                             <Text style={[styles.title, { color: "#000" }]}>
                                 Cafe Coffee Day
                             </Text>
                         </View>
                         <View
                             style={{
-                                flex: 1,
-                                justifyContent: "flex-end",
-                                flexDirection: "row",
-                                paddingLeft: 10,
-                                paddingTop: 8
+                                justifyContent: "center",
+                                alignItems: "flex-end",
+                                flexDirection: "row"
                             }}
                         >
                             <CustomIcon
                                 name="lt_edit"
                                 size={16}
-                                style={[
-                                    styles.headerIcon,
-                                    { color: "#000", marginHorizontal: 10 }
-                                ]}
-                                onPress={() => this.props.navigation.pop()}
+                                style={[styles.headerIcon, { color: "#000" }]}
+                                onPress={() => {}}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
                                 size={16}
-                                style={[
-                                    styles.headerIcon,
-                                    { color: "#000", marginHorizontal: 10 }
-                                ]}
-                                onPress={() => this.props.navigation.pop()}
+                                style={[styles.headerIcon, { color: "#000" }]}
+                                onPress={() =>
+                                    this.props.navigation.navigate("QRScanner")
+                                }
                             />
                         </View>
                     </View>
@@ -248,10 +246,8 @@ export default class ClaimDetails extends Component {
                         <View
                             style={{
                                 flex: 1,
-                                justifyContent: "flex-start",
-                                flexDirection: "row",
-                                paddingLeft: 10,
-                                paddingTop: 9
+                                justifyContent: "center",
+                                flexDirection: "row"
                             }}
                         >
                             <CustomIcon
@@ -261,35 +257,29 @@ export default class ClaimDetails extends Component {
                                 onPress={() => this.props.navigation.pop()}
                             />
                         </View>
-                        <View style={{ flex: 3, justifyContent: "center" }}>
+                        <View style={{ justifyContent: "center" }}>
                             <Text style={styles.title}>Cafe Coffee Day</Text>
                         </View>
                         <View
                             style={{
-                                flex: 1,
-                                justifyContent: "flex-end",
-                                flexDirection: "row",
-                                paddingLeft: 10,
-                                paddingTop: 8
+                                justifyContent: "center",
+                                alignItems: "flex-end",
+                                flexDirection: "row"
                             }}
                         >
                             <CustomIcon
                                 name="lt_edit"
                                 size={16}
-                                style={[
-                                    styles.headerIcon,
-                                    { marginHorizontal: 10 }
-                                ]}
-                                onPress={() => this.props.navigation.pop()}
+                                style={[styles.headerIcon]}
+                                onPress={() => {}}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
                                 size={16}
-                                style={[
-                                    styles.headerIcon,
-                                    { marginHorizontal: 10 }
-                                ]}
-                                onPress={() => this.props.navigation.pop()}
+                                style={[styles.headerIcon]}
+                                onPress={() =>
+                                    this.props.navigation.navigate("QRScanner")
+                                }
                             />
                         </View>
                     </View>

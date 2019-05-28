@@ -96,7 +96,7 @@ export class NewCoupon extends Component {
                                         focusId={focusId}
                                         // errorMessage=""
                                     />
-                                    <View style={{ flex: 0.4 }} />
+                                    <View style={{ paddingHorizontal: 5 }} />
                                     <InputField
                                         placeholder="End date"
                                         id="end-date"
@@ -116,6 +116,14 @@ export class NewCoupon extends Component {
                                 focusId={focusId}
                                 multiline={true}
                                 numberOfLines={10}
+                                inputStyle={{
+                                    fontSize: 12,
+                                    fontFamily: "Poppins-Light",
+                                    color: "#000000",
+                                    marginTop: 8,
+                                    textAlignVertical: "top",
+                                    justifyContent: "flex-start"
+                                }}
                                 // errorMessage=""
                             />
                         </View>

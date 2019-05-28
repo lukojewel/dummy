@@ -41,7 +41,7 @@ export default class BarcodeScanner extends React.Component {
 
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
-                <ScrollView>
+                <ScrollView contentContainerStyle={{ backgroundColor: "#000" }}>
                     <View
                         style={{
                             height: height * 0.6,
@@ -96,13 +96,11 @@ export default class BarcodeScanner extends React.Component {
                     <View
                         style={{
                             paddingHorizontal: 20,
-                            backgroundColor: "#FFF"
-                            // position: "absolute",
-                            // bottom: 0,
-                            // left: 0,
-                            // right: 0,
-                            // width: width,
-                            // height: height * 0.4
+                            backgroundColor: "#FFF",
+                            borderTopLeftRadius: 20,
+                            borderTopRightRadius: 20,
+                            borderTopEndRadius: 20,
+                            borderTopStartRadius: 20
                         }}
                     >
                         <View

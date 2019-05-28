@@ -28,7 +28,8 @@ export class LocationDetails extends Component {
         mapRegion: null,
         hasLocationPermissions: false,
         locationResult: null,
-        focusId: ""
+        focusId: "",
+        address: ""
     };
 
     componentDidMount() {
@@ -97,7 +98,11 @@ export class LocationDetails extends Component {
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
                 <ScrollView>
-                    <View style={{ flex: 1 }}>
+                    <View
+                        style={{
+                            flex: 1
+                        }}
+                    >
                         <View
                             style={{
                                 height: height * 0.65,
@@ -173,7 +178,7 @@ export class LocationDetails extends Component {
                                 <View
                                     style={{
                                         position: "absolute",
-                                        bottom: 30,
+                                        bottom: 50,
                                         right: 30,
                                         zIndex: 100,
                                         backgroundColor: "#FFF",
@@ -206,7 +211,16 @@ export class LocationDetails extends Component {
                                 </View>
                             )}
                         </View>
-                        <View style={{ marginHorizontal: 20, flex: 1 }}>
+                        <View
+                            style={{
+                                paddingHorizontal: 20,
+                                marginTop: -25,
+                                borderTopEndRadius: 20,
+                                borderTopStartRadius: 20,
+                                backgroundColor: "#fff",
+                                flex: 1
+                            }}
+                        >
                             <HeaderTitle title="Location" subText="Set Store" />
                             <View style={{ marginVertical: 5 }}>
                                 <InputField
@@ -216,6 +230,7 @@ export class LocationDetails extends Component {
                                     type="password"
                                     onFocus={this._onFocusAnimation}
                                     onBlur={this._onBlurAnimation}
+                                    value={address.name}
                                     // errorMessage=""
                                 />
                             </View>

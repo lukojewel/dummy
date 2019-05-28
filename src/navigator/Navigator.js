@@ -55,6 +55,10 @@ const CouponsStack = createStackNavigator(
             screen: Coupons,
             navigationOptions: ({ navigation }) => {
                 return {
+                    headerStyle: {
+                        elevation: 0,
+                        shadowOpacity: 0
+                    },
                     // headerTitle: "Coupons",
                     headerLeft: (
                         <View
@@ -89,6 +93,10 @@ const CreateCouponsStack = createStackNavigator(
             navigationOptions: ({ navigation }) => {
                 return {
                     headerTitle: "Create Coupons",
+                    headerStyle: {
+                        elevation: 0,
+                        shadowOpacity: 0
+                    },
                     headerLeft: (
                         <View
                             style={{
@@ -126,6 +134,10 @@ const ClaimsStack = createStackNavigator(
             screen: Claims,
             navigationOptions: ({ navigation }) => {
                 return {
+                    headerStyle: {
+                        elevation: 0,
+                        shadowOpacity: 0
+                    },
                     headerLeft: (
                         <View
                             style={{
@@ -219,6 +231,10 @@ const TabsStackNavigator = createStackNavigator({
         screen: QRScanner,
         navigationOptions: ({ navigation }) => {
             return {
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0
+                },
                 headerLeft: (
                     <View
                         style={{
@@ -261,6 +277,10 @@ const TabsStackNavigator = createStackNavigator({
         screen: Profile,
         navigationOptions: ({ navigation }) => {
             return {
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0
+                },
                 headerLeft: (
                     <View
                         style={{
@@ -344,6 +364,10 @@ const LoginStack = createStackNavigator({
         screen: PhoneVerification,
         navigationOptions: ({ navigation }) => {
             return {
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0
+                },
                 headerLeft: (
                     <View
                         style={{
@@ -368,6 +392,10 @@ const LoginStack = createStackNavigator({
         screen: OTPVerification,
         navigationOptions: ({ navigation }) => {
             return {
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0
+                },
                 headerLeft: (
                     <View
                         style={{

@@ -14,5 +14,14 @@ import QRScanner from "./Scanner/QRScanner";
 import DetailContainer from "./Details/DetailContainer";
 import InputField from "./FormElements/InputField";
 import Button from "./Button/Button";
+import ZeroState from "./ZeroState";
 
-export { Logo, HeaderTitle, QRScanner, DetailContainer, InputField, Button };
+export {
+    Logo,
+    HeaderTitle,
+    QRScanner,
+    DetailContainer,
+    InputField,
+    Button,
+    ZeroState
+};

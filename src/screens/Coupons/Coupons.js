@@ -14,11 +14,14 @@ import {
     ScrollView,
     Image,
     TouchableOpacity,
-    RefreshControl
+    RefreshControl,
+    Dimensions
 } from "react-native";
 import { Button } from "react-native-elements";
+import { ZeroState } from "../../common";
 
 import CustomIcon from "../../Icons/CustomIcon";
+const { height, width } = Dimensions.get("window");
 
 export class index extends Component {
     state = {
@@ -50,7 +53,7 @@ export class index extends Component {
                         onPress={() => this.tabSelect("latest")}
                         buttonStyle={{
                             paddingHorizontal: 11,
-                            paddingVertical: 9,
+                            paddingVertical: 3,
                             marginRight: 20,
                             borderColor:
                                 this.state.isActive == "latest"
@@ -76,7 +79,7 @@ export class index extends Component {
                         onPress={() => this.tabSelect("expiring_soon")}
                         buttonStyle={{
                             paddingHorizontal: 11,
-                            paddingVertical: 9,
+                            paddingVertical: 3,
                             borderColor:
                                 this.state.isActive == "expiring_soon"
                                     ? "#ed4c14"
@@ -246,40 +249,14 @@ export class index extends Component {
 
             case "expiring_soon":
                 return (
-                    <ScrollView
-                        contentContainerStyle={styles.contentContainer}
-                        refreshControl={
-                            <RefreshControl
-                                refreshing={this.state.refreshing}
-                                onRefresh={this._onRefresh}
-                            />
-                        }
+                    <View
+                        style={{
+                            justifyContent: "center",
+                            alignSelf: "center"
+                        }}
                     >
-                        <View
-                            style={{
-                                height: 300
-                                // backgroundColor: "#EDEDED"
-                            }}
-                        >
-                            <View
-                                style={{
-                                    flex: 1,
-                                    justifyContent: "center",
-                                    alignSelf: "center"
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        color: "#666",
-                                        fontFamily: "Poppins-Medium",
-                                        fontSize: 12
-                                    }}
-                                >
-                                    Zero State
-                                </Text>
-                            </View>
-                        </View>
-                    </ScrollView>
+                        <ZeroState />
+                    </View>
                 );
                 break;
 
@@ -298,7 +275,8 @@ export default index;
 
 const styles = StyleSheet.create({
     contentContainer: {
+        flex: 1,
         paddingVertical: 5,
-        marginBottom: 20
+        marginBottom: 60
     }
 });

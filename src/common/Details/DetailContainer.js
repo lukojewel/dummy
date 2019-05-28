@@ -7,12 +7,22 @@
  */
 
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image, Dimensions } from "react-native";
+import {
+    Text,
+    View,
+    StyleSheet,
+    Image,
+    Dimensions,
+    TouchableOpacity
+} from "react-native";
 
 import Logo from "../Image/Logo";
 const { height, width } = Dimensions.get("window");
 
 export class DetailContainer extends Component {
+    state = {
+        isExpand: false
+    };
     render() {
         return (
             <View style={style.container}>
@@ -137,18 +147,71 @@ export class DetailContainer extends Component {
                                 text)
                             </Text>
                         </View>
+                        {this.state.isExpand && (
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    marginVertical: 5
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        fontFamily: "Poppins-Light",
+                                        fontSize: 10,
+                                        lineHeight: 16.7
+                                    }}
+                                >
+                                    {"\u2022"}
+                                </Text>
+                                <Text
+                                    style={{
+                                        flex: 1,
+                                        paddingLeft: 5,
+                                        fontFamily: "Poppins-Light",
+                                        fontSize: 10,
+                                        lineHeight: 16.7
+                                    }}
+                                >
+                                    But I'm not sure how to express the need for
+                                    all 3 line elements (bullet, bolded text and
+                                    normal text)
+                                </Text>
+                            </View>
+                        )}
                     </View>
-                    <View style={{ flexDirection: "row", marginVertical: 5 }}>
-                        <Text
-                            style={{
-                                color: "#003370",
-                                fontFamily: "Poppins-Medium",
-                                fontSize: 10
-                            }}
+                    {this.state.isExpand ? (
+                        <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => this.setState({ isExpand: false })}
+                            style={{ flexDirection: "row", marginVertical: 5 }}
                         >
-                            Read More
-                        </Text>
-                    </View>
+                            <Text
+                                style={{
+                                    color: "#003370",
+                                    fontFamily: "Poppins-Medium",
+                                    fontSize: 10
+                                }}
+                            >
+                                Read Less
+                            </Text>
+                        </TouchableOpacity>
+                    ) : (
+                        <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => this.setState({ isExpand: true })}
+                            style={{ flexDirection: "row", marginVertical: 5 }}
+                        >
+                            <Text
+                                style={{
+                                    color: "#003370",
+                                    fontFamily: "Poppins-Medium",
+                                    fontSize: 10
+                                }}
+                            >
+                                Read More
+                            </Text>
+                        </TouchableOpacity>
+                    )}
                     <View
                         style={{
                             marginVertical: 25,

@@ -219,7 +219,7 @@ export default class CouponsDetails extends Component {
                                     styles.headerIcon,
                                     { color: "#000", marginHorizontal: 10 }
                                 ]}
-                                onPress={() => this.props.navigation.pop()}
+                                onPress={() => {}}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
@@ -228,7 +228,9 @@ export default class CouponsDetails extends Component {
                                     styles.headerIcon,
                                     { color: "#000", marginHorizontal: 10 }
                                 ]}
-                                onPress={() => this.props.navigation.pop()}
+                                onPress={() =>
+                                    this.props.navigation.navigate("QRScanner")
+                                }
                             />
                         </View>
                     </View>
@@ -287,7 +289,7 @@ export default class CouponsDetails extends Component {
                                     styles.headerIcon,
                                     { marginHorizontal: 10 }
                                 ]}
-                                onPress={() => this.props.navigation.pop()}
+                                onPress={() => {}}
                             />
                             <CustomIcon
                                 name="lt_qr_code_2"
@@ -296,7 +298,9 @@ export default class CouponsDetails extends Component {
                                     styles.headerIcon,
                                     { marginHorizontal: 10 }
                                 ]}
-                                onPress={() => this.props.navigation.pop()}
+                                onPress={() =>
+                                    this.props.navigation.navigate("QRScanner")
+                                }
                             />
                         </View>
                     </View>
