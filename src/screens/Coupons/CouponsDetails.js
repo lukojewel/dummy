@@ -19,6 +19,7 @@ import {
 
 import { DetailContainer } from "../../common";
 import CustomIcon from "../../Icons/CustomIcon";
+import { textFontSize } from "../../utils/UtilityFunctions";
 
 const HEADER_MAX_HEIGHT = 300;
 const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 60 : 73;
@@ -349,7 +350,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: "#fff",
-        fontSize: 14,
+        fontSize: textFontSize(14),
         lineHeight: 16,
         marginBottom: -4,
         fontFamily: "Poppins-SemiBold"

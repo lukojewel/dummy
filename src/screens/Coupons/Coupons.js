@@ -22,6 +22,7 @@ import { ZeroState } from "../../common";
 
 import CustomIcon from "../../Icons/CustomIcon";
 const { height, width } = Dimensions.get("window");
+import { textFontSize } from "../../utils/UtilityFunctions";
 
 export class index extends Component {
     state = {
@@ -62,7 +63,7 @@ export class index extends Component {
                         }}
                         titleStyle={{
                             fontFamily: "Poppins-Regular",
-                            fontSize: 11,
+                            fontSize: textFontSize(11),
                             color:
                                 this.state.isActive == "expiring_soon"
                                     ? "#000"
@@ -87,7 +88,7 @@ export class index extends Component {
                         }}
                         titleStyle={{
                             fontFamily: "Poppins-Regular",
-                            fontSize: 11,
+                            fontSize: textFontSize(11),
                             color:
                                 this.state.isActive == "expiring_soon"
                                     ? "#000"
@@ -218,7 +219,9 @@ export class index extends Component {
                                                         marginHorizontal: 20,
                                                         fontFamily:
                                                             "Poppins-Medium",
-                                                        fontSize: 12
+                                                        fontSize: textFontSize(
+                                                            12
+                                                        )
                                                     }}
                                                 >
                                                     Flat {item}0% discount on
@@ -231,7 +234,9 @@ export class index extends Component {
                                                         marginTop: 5,
                                                         fontFamily:
                                                             "Poppins-Light",
-                                                        fontSize: 10,
+                                                        fontSize: textFontSize(
+                                                            10
+                                                        ),
                                                         color: "#ed4c14"
                                                     }}
                                                 >
@@ -263,7 +268,15 @@ export class index extends Component {
             default:
                 return (
                     <ScrollView contentContainerStyle={styles.contentContainer}>
-                        <Text> Loading... </Text>
+                        <Text
+                            style={{
+                                fontFamily: "Poppins-Light",
+                                fontSize: textFontSize(10)
+                            }}
+                        >
+                            {" "}
+                            Loading...{" "}
+                        </Text>
                     </ScrollView>
                 );
                 break;

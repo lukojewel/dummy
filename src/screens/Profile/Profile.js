@@ -10,6 +10,7 @@ import { Text, View, ScrollView, StyleSheet } from "react-native";
 import { Input } from "react-native-elements";
 
 import { Button, Logo } from "../../common";
+import { textFontSize } from "../../utils/UtilityFunctions";
 
 export class Profile extends Component {
     render() {
@@ -27,7 +28,7 @@ export class Profile extends Component {
                         <Text
                             style={{
                                 fontFamily: "Poppins-SemiBold",
-                                fontSize: 14
+                                fontSize: textFontSize(14)
                             }}
                         >
                             Cafe Coffee Day
@@ -39,13 +40,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="Email"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -63,13 +64,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="Phone"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -87,13 +88,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="GST Number"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -111,13 +112,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="Contact Person"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -135,13 +136,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="State"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -159,13 +160,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="City"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -183,13 +184,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="Address"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -207,13 +208,13 @@ export class Profile extends Component {
                             textContentType="none"
                             label="Pincode"
                             labelStyle={{
-                                fontSize: 8,
+                                fontSize: textFontSize(8),
                                 fontFamily: "Poppins-SemiBold",
                                 fontWeight: "normal",
                                 color: "#8b8b8b"
                             }}
                             inputStyle={{
-                                fontSize: 12,
+                                fontSize: textFontSize(12),
                                 fontFamily: "Poppins-Regular",
                                 marginTop: -5,
                                 marginBottom: -5
@@ -228,7 +229,12 @@ export class Profile extends Component {
                         />
                     </View>
                     <View style={{ marginBottom: 15, flexDirection: "row" }}>
-                        <Button title="Logout" />
+                        <Button
+                            title="Logout"
+                            onPress={() =>
+                                this.props.navigation.navigate("Login")
+                            }
+                        />
                     </View>
                 </View>
             </ScrollView>

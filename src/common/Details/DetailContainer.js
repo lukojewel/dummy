@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import Logo from "../Image/Logo";
+import { textFontSize } from "../../utils/UtilityFunctions";
 const { height, width } = Dimensions.get("window");
 
 export class DetailContainer extends Component {
@@ -76,7 +77,7 @@ export class DetailContainer extends Component {
                                     backgroundColor: "#cbe0f9",
                                     color: "#003370",
                                     fontFamily: "Poppins-Regular",
-                                    fontSize: 10
+                                    fontSize: textFontSize(10)
                                 }}
                             >
                                 5 days left
@@ -89,7 +90,7 @@ export class DetailContainer extends Component {
                         <Text
                             style={{
                                 fontFamily: "Poppins-SemiBold",
-                                fontSize: 10
+                                fontSize: textFontSize(10)
                             }}
                         >
                             Notes:
@@ -102,7 +103,7 @@ export class DetailContainer extends Component {
                             <Text
                                 style={{
                                     fontFamily: "Poppins-Light",
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     lineHeight: 16.7
                                 }}
                             >
@@ -113,7 +114,7 @@ export class DetailContainer extends Component {
                                     flex: 1,
                                     paddingLeft: 5,
                                     fontFamily: "Poppins-Light",
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     lineHeight: 16.7
                                 }}
                             >
@@ -127,7 +128,7 @@ export class DetailContainer extends Component {
                             <Text
                                 style={{
                                     fontFamily: "Poppins-Light",
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     lineHeight: 16.7
                                 }}
                             >
@@ -138,7 +139,7 @@ export class DetailContainer extends Component {
                                     flex: 1,
                                     paddingLeft: 5,
                                     fontFamily: "Poppins-Light",
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     lineHeight: 16.7
                                 }}
                             >
@@ -157,7 +158,7 @@ export class DetailContainer extends Component {
                                 <Text
                                     style={{
                                         fontFamily: "Poppins-Light",
-                                        fontSize: 10,
+                                        fontSize: textFontSize(10),
                                         lineHeight: 16.7
                                     }}
                                 >
@@ -168,7 +169,7 @@ export class DetailContainer extends Component {
                                         flex: 1,
                                         paddingLeft: 5,
                                         fontFamily: "Poppins-Light",
-                                        fontSize: 10,
+                                        fontSize: textFontSize(10),
                                         lineHeight: 16.7
                                     }}
                                 >
@@ -189,7 +190,7 @@ export class DetailContainer extends Component {
                                 style={{
                                     color: "#003370",
                                     fontFamily: "Poppins-Medium",
-                                    fontSize: 10
+                                    fontSize: textFontSize(10)
                                 }}
                             >
                                 Read Less
@@ -205,7 +206,7 @@ export class DetailContainer extends Component {
                                 style={{
                                     color: "#003370",
                                     fontFamily: "Poppins-Medium",
-                                    fontSize: 10
+                                    fontSize: textFontSize(10)
                                 }}
                             >
                                 Read More
@@ -238,7 +239,7 @@ export class DetailContainer extends Component {
                                     style={{
                                         fontFamily: "Poppins-SemiBold",
                                         color: "#ed4c14",
-                                        fontSize: 10
+                                        fontSize: textFontSize(10)
                                     }}
                                 >
                                     Claims
@@ -249,7 +250,7 @@ export class DetailContainer extends Component {
                                     style={{
                                         fontFamily: "Poppins-Regular",
                                         color: "#ee5926",
-                                        fontSize: 12
+                                        fontSize: textFontSize(12)
                                     }}
                                 >
                                     3/200
@@ -320,21 +321,24 @@ export class DetailContainer extends Component {
                             >
                                 <Text
                                     style={{
-                                        fontSize: 6,
+                                        fontSize: textFontSize(6),
                                         fontFamily: "Poppins-Medium",
                                         alignSelf: "flex-end"
                                     }}
                                 >
                                     Bill{" "}
                                     <Text
-                                        style={[style.name, { fontSize: 10 }]}
+                                        style={[
+                                            style.name,
+                                            { fontSize: textFontSize(10) }
+                                        ]}
                                     >
                                         {"\u20B9"} 800
                                     </Text>
                                 </Text>
                                 <Text
                                     style={{
-                                        fontSize: 6,
+                                        fontSize: textFontSize(6),
                                         fontFamily: "Poppins-Medium",
                                         alignSelf: "flex-end"
                                     }}
@@ -343,7 +347,10 @@ export class DetailContainer extends Component {
                                     <Text
                                         style={[
                                             style.name,
-                                            { fontSize: 10, color: "#ff0107" }
+                                            {
+                                                fontSize: textFontSize(10),
+                                                color: "#ff0107"
+                                            }
                                         ]}
                                     >
                                         {"\u20B9"} 300
@@ -370,26 +377,26 @@ const style = StyleSheet.create({
     expiryText: {
         fontFamily: "Poppins-Bold",
         color: "#ed4c14",
-        fontSize: 10
+        fontSize: textFontSize(10)
     },
     dateText: {
         fontFamily: "Poppins-Regular",
-        fontSize: 10,
+        fontSize: textFontSize(10),
         alignSelf: "center",
         paddingLeft: 15
     },
     date: {
         fontFamily: "Poppins-Regular",
         color: "#787878",
-        fontSize: 8
+        fontSize: textFontSize(8)
     },
     name: {
         fontFamily: "Poppins-SemiBold",
-        fontSize: 10
+        fontSize: textFontSize(10)
     },
     titleText: {
         paddingVertical: 5,
-        fontSize: 14,
+        fontSize: textFontSize(14),
         fontFamily: "Poppins-Medium"
     }
 });

@@ -15,6 +15,7 @@ import {
 } from "react-native";
 
 import { InputField, Button } from "../../../common";
+import { textFontSize } from "../../../utils/UtilityFunctions";
 
 export class OTPVerification extends Component {
     state = {
@@ -52,7 +53,7 @@ export class OTPVerification extends Component {
                                 style={{
                                     marginVertical: 10,
                                     lineHeight: 20,
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     fontFamily: "Poppins-Medium",
                                     textDecorationLine: "underline"
                                 }}

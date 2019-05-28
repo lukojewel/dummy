@@ -7,16 +7,15 @@
  */
 
 import React, { Component } from "react";
-import { View, Text, Image, Platform, StyleSheet } from "react-native";
+import { View, Text, Platform, StyleSheet } from "react-native";
 import {
     createAppContainer,
     createSwitchNavigator,
     createStackNavigator,
     createBottomTabNavigator
 } from "react-navigation";
-import Icon from "@expo/vector-icons/Ionicons";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
+import { textFontSize } from "../utils/UtilityFunctions";
 import {
     Splash,
     Users,
@@ -184,44 +183,105 @@ const MainTabNavigator = createBottomTabNavigator(
             tabBarIcon: ({ focused, horizontal, tintColor }) => {
                 const { routeName } = navigation.state;
                 let iconName;
+                let tabLabel;
                 if (routeName === "CouponsStack") {
                     iconName = `lt_coupon`;
+                    tabLabel = "Coupons";
                 } else if (routeName === "CreateCouponsStack") {
                     iconName = `lt_plus`;
+                    tabLabel = "Create Coupons";
                     return (
                         <View
                             style={{
                                 flex: 1,
-                                alignItems: "center",
                                 justifyContent: "center",
-                                position: "absolute",
-                                padding: 5,
-                                backgroundColor: "#FFF",
-                                bottom: 5,
-                                borderRadius: 50,
-                                height: 50,
-                                width: 50
+                                alignItems: "center"
                             }}
                         >
-                            <CustomIcon
-                                name="lt_plus"
-                                size={20}
-                                color={tintColor}
-                            />
+                            <View
+                                style={{
+                                    flex: 1,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    position: "absolute",
+                                    padding: 2,
+                                    backgroundColor: "#fff",
+                                    bottom: 22,
+                                    borderRadius: 40,
+                                    height: 40,
+                                    width: 40
+                                }}
+                            >
+                                <CustomIcon
+                                    name="lt_plus"
+                                    size={20}
+                                    color={tintColor}
+                                />
+                            </View>
+                            <Text
+                                style={{
+                                    fontFamily: "Poppins-SemiBold",
+                                    fontSize: textFontSize(6),
+                                    margin: 5,
+                                    marginBottom: -10,
+                                    color: tintColor
+                                }}
+                            >
+                                {tabLabel}
+                            </Text>
                         </View>
                     );
                 } else if (routeName === "ClaimsStack") {
                     iconName = `lt_claim`;
+                    tabLabel = "Claims";
                 }
 
                 return (
-                    <CustomIcon name={iconName} size={16} color={tintColor} />
+                    <View
+                        style={{
+                            flex: 1,
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }}
+                    >
+                        <CustomIcon
+                            name={iconName}
+                            size={16}
+                            color={tintColor}
+                        />
+                        <Text
+                            style={{
+                                fontFamily: "Poppins-SemiBold",
+                                fontSize: textFontSize(6),
+                                margin: 5,
+                                color: tintColor
+                            }}
+                        >
+                            {tabLabel}
+                        </Text>
+                    </View>
                 );
             }
         }),
+
         tabBarOptions: {
-            activeTintColor: "tomato",
-            inactiveTintColor: "gray"
+            showLabel: false,
+            activeTintColor: "#ed4c14",
+            inactiveTintColor: "#010101",
+            style: {
+                elevation: 22,
+                shadowOffset: {
+                    width: 0,
+                    height: 4
+                },
+                shadowRadius: 22,
+                shadowColor: "#000",
+                borderTopWidth: 0
+            },
+            labelStyle: {
+                fontFamily: "Poppins-SemiBold",
+                fontSize: textFontSize(6)
+            }
         }
     }
 );
@@ -313,7 +373,7 @@ const TabsStackNavigator = createStackNavigator({
                             paddingVertical: 20,
                             color: "#ed4c14",
                             fontFamily: "Poppins-SemiBold",
-                            fontSize: 10
+                            fontSize: textFontSize(10)
                         }}
                     />
                 )
@@ -429,7 +489,7 @@ export default createAppContainer(AppSwitchNavigator);
 const styles = StyleSheet.create({
     title: {
         color: "#fff",
-        fontSize: 14,
+        fontSize: textFontSize(14),
         lineHeight: 16,
         fontFamily: "Poppins-SemiBold"
     },

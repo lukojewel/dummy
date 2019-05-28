@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { HeaderTitle, InputField, Button } from "../../../common";
+import { textFontSize } from "../../../utils/UtilityFunctions";
 
 export class Login extends Component {
     state = {
@@ -105,7 +106,7 @@ export class Login extends Component {
                             >
                                 <Text
                                     style={{
-                                        fontSize: 8,
+                                        fontSize: textFontSize(8),
                                         fontFamily: "Poppins-Medium",
                                         textAlign: "right"
                                     }}
@@ -131,7 +132,7 @@ export class Login extends Component {
                                     style={{
                                         marginVertical: 10,
                                         lineHeight: 20,
-                                        fontSize: 10,
+                                        fontSize: textFontSize(10),
                                         fontFamily: "Poppins-Medium",
                                         textDecorationLine: "underline"
                                     }}

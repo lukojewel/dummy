@@ -21,6 +21,8 @@ import { Button, Card } from "react-native-elements";
 import { ZeroState } from "../../common";
 
 import CustomIcon from "../../Icons/CustomIcon";
+import { textFontSize } from "../../utils/UtilityFunctions";
+
 const { height, width } = Dimensions.get("window");
 
 export class index extends Component {
@@ -62,7 +64,7 @@ export class index extends Component {
                         }}
                         titleStyle={{
                             fontFamily: "Poppins-Regular",
-                            fontSize: 11,
+                            fontSize: textFontSize(11),
                             color:
                                 this.state.isActive == "latest"
                                     ? "#000"
@@ -87,7 +89,7 @@ export class index extends Component {
                         }}
                         titleStyle={{
                             fontFamily: "Poppins-Regular",
-                            fontSize: 11,
+                            fontSize: textFontSize(11),
                             color:
                                 this.state.isActive == "no_of_claims"
                                     ? "#000"
@@ -217,7 +219,7 @@ export class index extends Component {
                                                     marginHorizontal: 20,
                                                     fontFamily:
                                                         "Poppins-Medium",
-                                                    fontSize: 12
+                                                    fontSize: textFontSize(12)
                                                 }}
                                             >
                                                 Flat {item}0% discount on all
@@ -229,7 +231,7 @@ export class index extends Component {
                                                     marginHorizontal: 20,
                                                     marginTop: 5,
                                                     fontFamily: "Poppins-Light",
-                                                    fontSize: 10,
+                                                    fontSize: textFontSize(10),
                                                     color: "#ed4c14"
                                                 }}
                                             >
@@ -270,7 +272,15 @@ export class index extends Component {
             default:
                 return (
                     <ScrollView contentContainerStyle={styles.contentContainer}>
-                        <Text> Loading... </Text>
+                        <Text
+                            style={{
+                                fontFamily: "Poppins-Light",
+                                fontSize: textFontSize(10)
+                            }}
+                        >
+                            {" "}
+                            Loading...{" "}
+                        </Text>
                     </ScrollView>
                 );
                 break;

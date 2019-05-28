@@ -8,6 +8,8 @@
 import React from "react";
 import { Button } from "react-native-elements";
 
+import { textFontSize } from "../../utils/UtilityFunctions";
+
 const CustomButton = ({ title, type = "outline", onPress, ...props }) => {
     return (
         <Button
@@ -19,7 +21,7 @@ const CustomButton = ({ title, type = "outline", onPress, ...props }) => {
             titleStyle={{
                 padding: 0,
                 color: "#ed4c14",
-                fontSize: 12,
+                fontSize: textFontSize(12),
                 fontFamily: "Poppins-SemiBold"
             }}
             title={title}

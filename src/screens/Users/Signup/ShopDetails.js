@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { HeaderTitle, InputField, Button } from "../../../common";
+import { textFontSize } from "../../../utils/UtilityFunctions";
 
 export class ShopDetails extends Component {
     state = {
@@ -92,7 +93,7 @@ export class ShopDetails extends Component {
                                 >
                                     <Text
                                         style={{
-                                            fontSize: 8,
+                                            fontSize: textFontSize(8),
                                             fontFamily: "Poppins-Medium"
                                         }}
                                     >
@@ -100,7 +101,7 @@ export class ShopDetails extends Component {
                                     </Text>
                                     <Text
                                         style={{
-                                            fontSize: 8,
+                                            fontSize: textFontSize(8),
                                             fontFamily: "Poppins-Medium"
                                         }}
                                     >
@@ -192,7 +193,7 @@ export class ShopDetails extends Component {
                                     style={{
                                         marginVertical: 10,
                                         lineHeight: 20,
-                                        fontSize: 10,
+                                        fontSize: textFontSize(10),
                                         fontFamily: "Poppins-Medium",
                                         textDecorationLine: "underline"
                                     }}

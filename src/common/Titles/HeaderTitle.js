@@ -9,6 +9,8 @@
 import React from "react";
 import { View, Text } from "react-native";
 
+import { textFontSize } from "../../utils/UtilityFunctions";
+
 const HeaderTitle = ({ title, subText }) => {
     return (
         <View
@@ -23,7 +25,7 @@ const HeaderTitle = ({ title, subText }) => {
                 <Text
                     style={{
                         color: "#9c9c9c",
-                        fontSize: 14,
+                        fontSize: textFontSize(14),
                         fontFamily: "Poppins-Light"
                     }}
                 >
@@ -33,7 +35,7 @@ const HeaderTitle = ({ title, subText }) => {
             <Text
                 style={{
                     color: "#000000",
-                    fontSize: 16,
+                    fontSize: textFontSize(16),
                     fontFamily: "Poppins-Bold"
                 }}
             >

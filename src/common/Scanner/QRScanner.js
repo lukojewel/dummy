@@ -20,6 +20,7 @@ import { Constants, Permissions, BarCodeScanner } from "expo";
 
 import Button from "../Button/Button";
 import InputField from "../FormElements/InputField";
+import { textFontSize } from "../../utils/UtilityFunctions";
 
 const { height, width } = Dimensions.get("window");
 
@@ -112,7 +113,7 @@ export default class BarcodeScanner extends React.Component {
                         >
                             <Text
                                 style={{
-                                    fontSize: 10,
+                                    fontSize: textFontSize(10),
                                     color: "#ed4c14",
                                     fontFamily: "Poppins-Bold"
                                 }}

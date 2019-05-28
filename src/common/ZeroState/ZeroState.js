@@ -8,6 +8,8 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
+import { textFontSize } from "../../utils/UtilityFunctions";
+
 const ZeroState = () => {
     return (
         <View
@@ -41,7 +43,7 @@ const ZeroState = () => {
                 <Text
                     style={{
                         fontFamily: "Poppins-Bold",
-                        fontSize: 16,
+                        fontSize: textFontSize(16),
                         color: "#000",
                         marginBottom: 10
                     }}

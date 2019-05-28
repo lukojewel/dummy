@@ -9,10 +9,12 @@ import React from "react";
 import { View } from "react-native";
 import { Input } from "react-native-elements";
 
+import { textFontSize } from "../../utils/UtilityFunctions";
+
 let labelStyle = {
     fontFamily: "Poppins-SemiBold",
     fontWeight: "normal",
-    fontSize: 8,
+    fontSize: textFontSize(8),
     color: "#8b8b8b"
 };
 
@@ -62,7 +64,7 @@ const InputField = ({
                     borderBottomWidth: 0
                 }}
                 inputStyle={{
-                    fontSize: 12,
+                    fontSize: textFontSize(12),
                     fontFamily: "Poppins-Light",
                     color: "#000000",
                     marginTop: 3

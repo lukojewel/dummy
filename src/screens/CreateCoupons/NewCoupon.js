@@ -16,6 +16,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import { InputField, Button } from "../../common";
+import { textFontSize } from "../../utils/UtilityFunctions";
 
 export class NewCoupon extends Component {
     state = {
@@ -46,7 +47,7 @@ export class NewCoupon extends Component {
                                             style={{
                                                 color: "#8c8b8b",
                                                 fontFamily: "Poppins-Medium",
-                                                fontSize: 10
+                                                fontSize: textFontSize(10)
                                             }}
                                         >
                                             Click here to upload a cover image
@@ -117,7 +118,7 @@ export class NewCoupon extends Component {
                                 multiline={true}
                                 numberOfLines={10}
                                 inputStyle={{
-                                    fontSize: 12,
+                                    fontSize: textFontSize(12),
                                     fontFamily: "Poppins-Light",
                                     color: "#000000",
                                     marginTop: 8,
@@ -139,7 +140,7 @@ export class NewCoupon extends Component {
                                     style={{
                                         marginVertical: 10,
                                         lineHeight: 20,
-                                        fontSize: 10,
+                                        fontSize: textFontSize(10),
                                         fontFamily: "Poppins-Medium",
                                         textDecorationLine: "underline"
                                     }}
