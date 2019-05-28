@@ -15,13 +15,42 @@ import {
     KeyboardAvoidingView,
     TouchableOpacity
 } from "react-native";
+import moment from "moment";
+
 import { InputField, Button } from "../../common";
 import { textFontSize } from "../../utils/UtilityFunctions";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 export class NewCoupon extends Component {
     state = {
-        focusId: ""
+        focusId: "",
+        startDate: "",
+        endDate: "",
+        isDateTimePickerVisible: false
     };
+
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
+
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
+
+    handleDatePicked = date => {
+        console.log("A date has been picked: ", date);
+        let _date = "";
+        if (date) {
+            _date = moment(date).format("YYYY-MM-DD");
+        }
+        if (this.state.focusId == "start-date") {
+            this.setState({ startDate: _date });
+        } else if (this.state.focusId == "end-date") {
+            this.setState({ endDate: _date });
+        }
+        this.hideDateTimePicker();
+    };
+
     render() {
         const { focusId } = this.state;
         return (
@@ -95,6 +124,8 @@ export class NewCoupon extends Component {
                                         onFocus={this._onFocusAnimation}
                                         onBlur={this._onBlurAnimation}
                                         focusId={focusId}
+                                        value={this.state.startDate}
+                                        keyboardType="none"
                                         // errorMessage=""
                                     />
                                     <View style={{ paddingHorizontal: 5 }} />
@@ -104,6 +135,8 @@ export class NewCoupon extends Component {
                                         onFocus={this._onFocusAnimation}
                                         onBlur={this._onBlurAnimation}
                                         focusId={focusId}
+                                        value={this.state.endDate}
+                                        keyboardType="none"
                                         // errorMessage=""
                                     />
                                 </View>
@@ -151,13 +184,22 @@ export class NewCoupon extends Component {
                             <Button title="Create & Publish" />
                         </View>
                     </View>
+                    <DateTimePicker
+                        isVisible={this.state.isDateTimePickerVisible}
+                        onConfirm={this.handleDatePicked}
+                        onCancel={this.hideDateTimePicker}
+                    />
                 </ScrollView>
             </KeyboardAvoidingView>
         );
     }
 
     _onFocusAnimation = focusId => {
-        this.setState({ focusId });
+        if (focusId == "start-date" || focusId == "end-date") {
+            this.setState({ focusId, isDateTimePickerVisible: true });
+        } else {
+            this.setState({ focusId });
+        }
     };
 
     _onBlurAnimation = () => {
